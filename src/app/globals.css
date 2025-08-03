@@ -1,26 +1,122 @@
 @import "tailwindcss";
+/* src/app/globals.css */
 
+/* Tailwind CSS directives
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/*
+|--------------------------------------------------------------------------
+| Theme-Specific CSS Variables
+| These variables define the colors for light and dark modes.
+| Applied to the :root (html) element.
+|--------------------------------------------------------------------------
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Global Colors (Light Mode Defaults) */
+  --color-background: #F3F4F6; /* Tailwind gray-100 */
+  --color-foreground: #1F2937; /* Tailwind gray-800 */
+  --font-sans: Inter, sans-serif; /* Default font */
+  --font-mono: monospace;
+
+  /* Specific component colors that are easier to manage with variables for dark mode */
+  --color-indigo-600: #4F46E5; /* Original indigo-600 */
+  --color-indigo-500: #6366F1; /* Original indigo-500 */
+  --color-indigo-700: #4338CA; /* Original indigo-700 */
+  --color-gray-900: #111827; /* Original gray-900 */
+  --color-gray-800: #1F2937; /* Original gray-800 */
+  --color-gray-700: #374151; /* Original gray-700 */
+  --color-gray-600: #4B5563; /* Original gray-600 */
+  --color-gray-400: #9CA3AF; /* Original gray-400 */
+  --color-gray-300: #D1D5DB; /* Original gray-300 */
+  --color-gray-200: #E5E7EB; /* Original gray-200 */
+  --color-gray-100: #F3F4F6; /* Original gray-100 */
+  --color-white: #FFFFFF; /* Original white */
+
+  /* Banner specific background color variable */
+  --banner-bg-color: #DBEAFE; /* Light mode: blue-100 */
+
+  /* Navbar specific background color variable */
+  --navbar-bg-color: #FFFFFF; /* Light mode: white */
+
+  /* Shadow colors for light mode */
+  --shadow-color-light: rgba(0, 0, 0, 0.1);
+  --shadow-color-dark: rgba(0, 0, 0, 0.5); /* This will be used in dark mode */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark Mode Overrides */
+html[data-theme="dark"] {
+  /* Global Colors (Dark Mode) */
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+
+  /* Override specific component colors for dark mode */
+  --color-indigo-600: #818CF8; /* Dark mode indigo-400 */
+  --color-indigo-500: #6366F1; /* Can remain same or be adjusted */
+  --color-indigo-700: #4338CA; /* Can remain same or be adjusted */
+  --color-gray-900: #111827; /* Dark mode gray-900 */
+  --color-gray-800: #1F2937; /* Dark mode gray-800 */
+  --color-gray-700: #374151; /* Dark mode gray-700 */
+  --color-gray-600: #4B5563; /* Dark mode gray-600 */
+  --color-gray-400: #9CA3AF; /* Dark mode gray-400 */
+  --color-gray-300: #D1D5DB; /* Dark mode gray-300 */
+  --color-gray-200: #E5E7EB; /* Dark mode gray-200 */
+  --color-gray-100: #F3F4F6; /* Dark mode gray-100 */
+  --color-white: #FFFFFF; /* Dark mode white */
+
+  /* Banner specific background color override for dark mode */
+  --banner-bg-color: #262F3C; /* A new, distinct dark blue-gray for the banner */
+
+  /* Navbar specific background color override for dark mode */
+  --navbar-bg-color: #111827; /* Dark mode: gray-900 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base styles for the entire document - moved here to ensure correct variable application */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Apply global background and text colors using CSS variables */
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans); /* Use the font variable */
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Custom utility classes (if needed, otherwise Tailwind handles most)
+|--------------------------------------------------------------------------
+*/
+.shadow-lg-custom {
+  box-shadow: 0 10px 15px -3px var(--shadow-color-light), 0 4px 6px -2px var(--shadow-color-light);
+}
+
+html[data-theme="dark"] .shadow-lg-custom {
+  box-shadow: 0 10px 15px -3px var(--shadow-color-dark), 0 4px 6px -2px var(--shadow-color-dark);
+}
+
+/* You can add more custom classes here if Tailwind doesn't provide the exact dark mode variant */
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+
+.animation-delay-2000 {
+  animation-delay: 2s;
 }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+.animate-float { animation: float 8s ease-in-out infinite; }
+.animation-delay-2000 { animation-delay: 2s; }
