@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useLayoutEffect } from "react";
 import { motion, useAnimationControls } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -22,6 +23,7 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { IoLogoFirebase, IoLogoVercel } from "react-icons/io5";
 
 const TechnologyStack = () => {
+  const { theme } = useTheme();
   const scrollerRef = useRef(null);
   const controls = useAnimationControls();
   const doubled = [];
@@ -48,7 +50,7 @@ const TechnologyStack = () => {
     },
     {
       name: "Next.js",
-      icon: <SiNextdotjs className="h-8 w-8 text-black" />,
+      icon: <SiNextdotjs className="h-8 w-8 text-black dark:text-white" />,
       description: "React framework for production",
       color: "bg-gray-800 text-white",
     },
@@ -84,7 +86,7 @@ const TechnologyStack = () => {
     },
     {
       name: "Express.js",
-      icon: <SiExpress className="h-8 w-8 text-black" />,
+      icon: <SiExpress className="h-8 w-8 text-black dark:text-white" />,
       description: "Node.js web application framework",
       color: "bg-gray-600 text-white",
     },
@@ -102,19 +104,19 @@ const TechnologyStack = () => {
     },
     {
       name: "ShadCN UI",
-      icon: <SiShadcnui className="h-8 w-8 text-black" />,
+      icon: <SiShadcnui className="h-8 w-8 text-black dark:text-white" />,
       description: "Beautifully designed components",
       color: "bg-indigo-500 text-white",
     },
     {
       name: "GitHub",
-      icon: <FaGithub className="h-8 w-8 text-[#181717]" />,
+      icon: <FaGithub className="h-8 w-8 text-[#181717] dark:text-white" />,
       description: "Version control and collaboration",
       color: "bg-gray-700 text-white",
     },
     {
       name: "Vercel",
-      icon: <IoLogoVercel className="h-8 w-8 text-black" />,
+      icon: <IoLogoVercel className="h-8 w-8 text-black dark:text-white" />,
       description: "Cloud platform for frontend",
       color: "bg-gray-900 text-white",
     },
@@ -123,11 +125,8 @@ const TechnologyStack = () => {
   // Double the technologies array for an infinite loop effect
   doubled.push(...technologies, ...technologies);
   
-  // Use useLayoutEffect to calculate the width before the component paints
   useLayoutEffect(() => {
     if (scrollerRef.current) {
-      // The scroll width is the total width of all items. We want to scroll
-      // exactly half of that to create a seamless loop.
       const scrollWidth = scrollerRef.current.scrollWidth / 2;
       animationProps.current = {
         x: -scrollWidth,
@@ -135,17 +134,15 @@ const TechnologyStack = () => {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 25, // 30 seconds for a full loop
+            duration: 25,
             ease: "linear",
           },
         },
       };
-      // Start the animation after calculating the width
       controls.start(animationProps.current);
     }
   }, [controls]);
 
-  // Handlers to stop and resume animation on hover
   const onHoverStart = () => {
     controls.stop();
   };
@@ -155,13 +152,19 @@ const TechnologyStack = () => {
   };
 
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gray-100">
+    <section className={`py-12 px-4 sm:px-6 lg:px-8 overflow-hidden ${
+      theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100'
+    }`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">
+          <h2 className={`text-3xl font-bold ${
+            theme === 'dark' ? 'text-white' : 'text-gray-900'
+          }`}>
             My Technology Stack
           </h2>
-          <p className="text-lg max-w-2xl mx-auto text-gray-600">
+          <p className={`text-lg max-w-2xl mx-auto ${
+            theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+          }`}>
             Tools and technologies I use to build amazing projects
           </p>
         </div>
@@ -177,7 +180,9 @@ const TechnologyStack = () => {
             {doubled.map((tech, index) => (
               <div
                 key={`${tech.name}-${index}`}
-                className="flex-shrink-0 w-48 flex flex-col items-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 bg-white"
+                className={`flex-shrink-0 w-48 flex flex-col items-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 ${
+                  theme === 'dark' ? 'bg-gray-800' : 'bg-white'
+                }`}
               >
                 <div
                   className={`mb-4 p-3 rounded-full ${tech.color}`}
@@ -185,10 +190,14 @@ const TechnologyStack = () => {
                 >
                   {tech.icon}
                 </div>
-                <h3 className="text-lg font-semibold mb-1 text-center text-gray-900">
+                <h3 className={`text-lg font-semibold mb-1 text-center ${
+                  theme === 'dark' ? 'text-white' : 'text-gray-900'
+                }`}>
                   {tech.name}
                 </h3>
-                <p className="text-sm text-center text-gray-600">
+                <p className={`text-sm text-center ${
+                  theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+                }`}>
                   {tech.description}
                 </p>
               </div>
