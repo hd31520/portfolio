@@ -2,10 +2,11 @@
 
 import React, { useRef, useEffect } from "react";
 
-const AutoScrollContainer = ({ src, scrollSpeed = 2, returnSpeed = 2 }) => {
+const AutoScrollContainer = ({ src, scrollSpeed = 2, returnSpeed = 2, isScrollingEnabled }) => {
   const containerRef = useRef(null);
   const animationFrameId = useRef(null);
   const scrollDirection = useRef(0);
+  console.log(isScrollingEnabled)
 
   // Function to handle continuous scrolling
   const animateScroll = () => {
@@ -43,17 +44,21 @@ const AutoScrollContainer = ({ src, scrollSpeed = 2, returnSpeed = 2 }) => {
 
   // Event handler for mouse entering the container
   const handleMouseEnter = () => {
-    scrollDirection.current = 1; // Set direction to scroll down
-    if (!animationFrameId.current) {
-      animationFrameId.current = requestAnimationFrame(animateScroll);
+    if (isScrollingEnabled) {
+      scrollDirection.current = 1; // Set direction to scroll down
+      if (!animationFrameId.current) {
+        animationFrameId.current = requestAnimationFrame(animateScroll);
+      }
     }
   };
 
   // Event handler for mouse leaving the container
   const handleMouseLeave = () => {
-    scrollDirection.current = -1; // Set direction to scroll up
-    if (!animationFrameId.current) {
-      animationFrameId.current = requestAnimationFrame(animateScroll);
+    if (isScrollingEnabled) {
+      scrollDirection.current = -1; // Set direction to scroll up
+      if (!animationFrameId.current) {
+        animationFrameId.current = requestAnimationFrame(animateScroll);
+      }
     }
   };
 
@@ -77,13 +82,13 @@ const AutoScrollContainer = ({ src, scrollSpeed = 2, returnSpeed = 2 }) => {
         window.open(src, "_blank", "noopener noreferrer");
       }}
       style={{
-        height: "400px", // Example fixed height for the scrollable area
-        overflowY: "auto", // This must be `auto` or `scroll` for the content to have a `scrollHeight`
+        height: "400px",
+        overflowY: isScrollingEnabled ? "auto" : "hidden", // Conditional overflow based on prop
         borderRadius: "0.5rem",
         padding: "1rem",
         transition: "border-color 0.3s ease-in-out",
         position: "relative",
-        cursor: "pointer", // Gives a visual cue that it's clickable
+        cursor: "pointer",
       }}
       className="bg-white dark:bg-[var(--color-gray-800)] text-[var(--color-gray-800)] dark:text-[var(--color-white)] shadow-lg-custom"
     >
@@ -93,9 +98,9 @@ const AutoScrollContainer = ({ src, scrollSpeed = 2, returnSpeed = 2 }) => {
         title="External Website View"
         style={{
           width: "100%",
-           height: "4800px",
+          height: `${isScrollingEnabled ? "7680px": "100%"}`, // A large, fixed height to ensure content is available for scroll
           border: "none",
-          // The key fix: This allows mouse events to be handled by the parent div
+          // This allows mouse events to be handled by the parent div
           pointerEvents: "none",
           overflow: "hidden"
         }}

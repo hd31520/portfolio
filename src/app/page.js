@@ -14,7 +14,7 @@ export default function Home() {
         id="home"
         title="Md. Hridoy Sheikh"
         subtitle="Web Developer | Frontend Developer"
-        imageUrl="https://i.ibb.co/MwRqn7N/tinywow-change-bg-photo-82924083.png"
+        imageUrl="/hridoy.png"
         imageAlt="Md. Hridoy Sheikh Profile Picture"
       />
       

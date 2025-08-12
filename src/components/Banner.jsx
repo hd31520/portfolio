@@ -1,61 +1,3 @@
-// "use client"; // This directive is necessary for React Hooks like useState
-
-// import React from 'react';
-// import Link from 'next/link';
-// import Image from 'next/image';
-// import { useTheme } from '../context/ThemeContext'; // Import useTheme hook
-
-// const Banner = ({ title, subtitle, imageUrl, imageAlt }) => {
-//   const { theme } = useTheme(); // Get current theme from context
-
-//   return (
-//     // Banner container with dynamic background and shadow based on theme
-//     // Now correctly using --banner-bg-color variable
-//     <div className="relative bg-[var(--banner-bg-color)] pt-24 text-[var(--color-gray-800)] dark:text-[var(--color-white)] py-16 px-4 sm:px-6 lg:px-8 overflow-hidden rounded-lg shadow-lg-custom transition-colors duration-300">
-//       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
-//         {/* Optional: Add a subtle background pattern or illustration */}
-//         <div
-//           className="absolute inset-0 opacity-10"
-//           style={{
-//             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zm0-30V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-//             backgroundRepeat: 'repeat',
-//             backgroundSize: '30px 30px'
-//           }}
-//         ></div>
-
-//         {/* Text Content */}
-//         <div className="text-center md:text-left md:w-1/2 relative z-10 mb-8 md:mb-0">
-
-//           <p className="text-[var(--color-gray-600)] dark:text-[var(--color-gray-400)] text-lg font-medium">Hi, I'm</p>
-//           <h2 className="text-[var(--color-indigo-700)] dark:text-[var(--color-indigo-400)] text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl mt-2">
-//             {title}
-//           </h2>
-//           <p className="mt-2 text-xl sm:text-2xl lg:text-3xl text-[var(--color-gray-700)] dark:text-[var(--color-gray-300)]">
-//             {subtitle}
-//           </p>
-//         </div>
-
-//         {/* Image Section */}
-//         {imageUrl && (
-//           <div className="md:w-1/2 flex justify-center md:justify-end relative z-10">
-//             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-lg">
-//               <Image
-//                 src={imageUrl}
-//                 alt={imageAlt || "Profile Picture"}
-//                 layout="fill"
-//                 objectFit="cover"
-//                 className="rounded-full"
-//               />
-//             </div>
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Banner;
-
 "use client";
 
 import React, { useEffect } from 'react';
@@ -104,12 +46,13 @@ const AnimatedText = ({ text, className, delay = 0 }) => {
 // Auto-changing subtitle variants
 const subtitles = [
   "Web Developer",
-  "Frontend Specialist",
-  "React Developer",
-  "Next.js Expert"
+  "Full-Stack Engineer",
+  "React & Node.js",
+  "Express.js & MongoDB"
 ];
 
 const Banner = ({ title, imageUrl, imageAlt }) => {
+  
   const { theme } = useTheme();
   const controls = useAnimation();
   const [currentSubtitle, setCurrentSubtitle] = React.useState(0);
@@ -208,11 +151,11 @@ const Banner = ({ title, imageUrl, imageAlt }) => {
               className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}
             >
               <AnimatedText 
-                text="Crafting pixel-perfect interfaces with React, Next.js and Tailwind CSS." 
+                text="Building robust full-stack applications with the MERN stack." 
                 delay={1.2}
               />
               <AnimatedText 
-                text="Passionate about building accessible, performant web applications." 
+                text="Passionate about creating scalable and secure APIs." 
                 delay={1.5}
               />
             </motion.div>

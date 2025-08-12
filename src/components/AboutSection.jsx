@@ -39,16 +39,18 @@ const AboutSection = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Image */}
-          <div className="relative h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="https://i.ibb.co/BVgP719x/1753965482626.jpg"
-              alt="Md. Hridoy Sheikh working"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
+          {/* Left Column - Image with corrected aspect ratio */}
+          <div className="relative rounded-xl overflow-hidden shadow-lg">
+            {/* This div creates a responsive 1:1 aspect ratio box */}
+            <div className="relative pt-[100%]">
+              <Image
+                src="/hridoy2.jpg"
+                alt="Md. Hridoy Sheikh working"
+                fill
+                className="absolute top-0 left-0 object-cover w-full h-full"
+                priority
+              />
+            </div>
           </div>
 
           {/* Right Column - Content */}
@@ -78,7 +80,7 @@ const AboutSection = () => {
                   color: theme === 'dark' ? 'var(--color-gray-300)' : 'var(--color-gray-600)'
                 }}
               >
-                I specialize in JavaScript technologies across the whole stack (React.js, Next.js, Node.js, Express.js, and MongoDB). I love turning complex problems into simple, beautiful, and intuitive solutions.
+                I specialize in JavaScript technologies across the whole stack (React.js, Node.js, Express.js, and MongoDB). I love turning complex problems into simple, beautiful, and intuitive solutions.
               </p>
               
               <p 
