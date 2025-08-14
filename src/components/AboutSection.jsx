@@ -44,7 +44,7 @@ const AboutSection = () => {
             {/* This div creates a responsive 1:1 aspect ratio box */}
             <div className="relative pt-[100%]">
               <Image
-                src="/hridoy2.jpg"
+                src="/hridoy2.png"
                 alt="Md. Hridoy Sheikh working"
                 fill
                 className="absolute top-0 left-0 object-cover w-full h-full"

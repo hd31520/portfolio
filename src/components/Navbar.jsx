@@ -27,7 +27,7 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             {/* Logo text with dynamic color based on theme */}
             <Link href="/" className="text-[var(--color-indigo-600)] flex gap-10  text-2xl font-bold rounded-md p-2 hover:bg-indigo-50 transition-colors duration-300">
-            <img className='h-10 w-10 rounded-full'  src="/hridoy2.jpg" alt="" />
+            <img className='h-10 w-10 rounded-full'  src="/hridoy2.png" alt="" />
                 Md. Hridoy Sheikh
             </Link>
           </div>
