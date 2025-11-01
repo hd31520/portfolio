@@ -163,7 +163,7 @@ const ContactSection = () => {
                   <Github className="h-5 w-5" />
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/md-hridoy-sheikh-b16b01298/" 
+                  href="https://www.linkedin.com/in/mdhridoysheikh/" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`p-3 rounded-full transition-colors duration-300 ${
