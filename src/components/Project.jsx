@@ -229,58 +229,64 @@ const techIcons = [
     bg: "bg-indigo-100 dark:bg-indigo-900/30",
   },
 ];
-
 const projectTechStacks = [
   {
     id: 1,
+    url: "https://mock-miya.vercel.app/", // From resume.json
+    clientGithubUrl: "https://github.com/Pullock4981/MockMiya_client.git", // From resume.json
+    serverGithubUrl: "https://github.com/Pullock4981/MockMiya_client.git", // No server-specific link in resume.json
+    tech: [
+      "Mext.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "TypeScript",
+    ],
+    title: "MockMiya",
+    isScrollingEnabled: false,
+    description:
+      "AI-powered resume generator that creates tailored, role-specific resumes instantly. Interactive interview simulator with text, voice, and video practice modes. Performance analytics and export tools for tracking progress and downloading polished resumes.",
+  },
+  {
+    id: 2,
     url: "https://petuk-22f6f.web.app/",
     clientGithubUrl: "https://github.com/hd31520/petuk-clint",
     serverGithubUrl: "https://github.com/hd31520/petuk-server",
     tech: [
-      "HTML5",
-      "CSS3",
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "Next.js",
-      "Firebase",
+      "React.js",
+      "Node.js",
       "Express.js",
-      "TanStack Query",
       "MongoDB",
-      "Stripe",
-      "GitHub",
-      "Vercel",
+      "Tailwind CSS",
+      "JWT",
+      "Firebase",
     ],
-    title: "Restaurant Management",
+    title: "Restaurant Management Online",
     isScrollingEnabled: false,
     description:
-      "A full-stack restaurant management platform built with the MERN stack. It features an intuitive interface for managing orders, tables, and reservations.",
+      "Full-stack MERN platform for managing orders, tables, and reservations. Implemented secure JWT-based authentication & Firebase login. Developed a responsive Ul with Tailwind CSS.",
   },
   {
-    id: 2,
+    id: 3,
     url: "https://adop-a3a82.web.app/",
     clientGithubUrl: "https://github.com/hd31520/Pet-Adoption",
     serverGithubUrl: "https://github.com/hd31520/petadopter-server",
     tech: [
-      "HTML5",
-      "CSS3",
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "ShadCN UI",
-      "TanStack Query",
-      "Firebase",
+      "React.js",
+      "Node.js",
       "Express.js",
       "MongoDB",
-      "Stripe",
-      "GitHub",
-      "Vercel",
+      "Tailwind CSS",
+      "Firebase",
+      "JWT",
     ],
     title: "Pet Adoption Platform",
     isScrollingEnabled: true,
     description:
-      "A comprehensive pet adoption platform that connects animals with loving homes. The site uses React for a fast and dynamic user experience.",
+      "Web app connecting pets with adopters; implemented secure adoption requests. Role-based user access for admins & adopters. Integrated Firebase authentication with MongoDB backend.",
   },
+  
 ];
 
 // --- Project Component ---
@@ -290,13 +296,13 @@ const Project = () => {
   console.log("Current Theme:", theme);
 
   return (
-    <div className="w-full p-4 space-y-12 relative">
+    <div className=" w-full p-4 space-y-12 relative">
       {/* Dynamic background element based on theme */}
-      <div
+      {/* <div
         className={`absolute right-1/4 bottom-0 w-64 h-64 rounded-full blur-3xl ${
           theme === "dark" ? "bg-black" : "bg-blue-200"
         }`}
-      />
+      ></div> */}
 
       {/* Header */}
       <div className="flex items-center justify-center pt-8">

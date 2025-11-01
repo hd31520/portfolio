@@ -106,7 +106,7 @@ const Banner = ({ title, imageUrl, imageAlt }) => {
           }}
           className={`absolute right-1/4 bottom-0 w-64 h-64 rounded-full blur-3xl ${theme === 'dark' ? 'bg-blue-900' : 'bg-blue-200'}`}
         ></motion.div>
-      </motion.div>
+      </motion.div> 
 
       <div className="max-w-7xl mx-auto px-6 py-24 sm:py-32 lg:px-8">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
@@ -193,7 +193,7 @@ const Banner = ({ title, imageUrl, imageAlt }) => {
             >
               {[
                 { icon: <FaGithub className="h-6 w-6" />, url: "https://github.com/hd31520" },
-                { icon: <FaLinkedin className="h-6 w-6" />, url: "https://www.linkedin.com/in/md-hridoy-sheikh-b16b01298/" },
+                { icon: <FaLinkedin className="h-6 w-6" />, url: "https://www.linkedin.com/in/mdhridoysheikh/" },
                 { icon: <FaFacebook className="h-6 w-6" />, url: "https://www.facebook.com/Hridoy3240/" }
               ].map((social, index) => (
                 <motion.a
