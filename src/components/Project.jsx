@@ -232,11 +232,29 @@ const techIcons = [
 const projectTechStacks = [
   {
     id: 1,
+    url: "https://www.karkhana.shop/", // From resume.json
+    clientGithubUrl: "https://github.com/hd31520/karkhana-clint", // From resume.json
+    serverGithubUrl: "https://github.com/hd31520/kharkhana-react-server", // No server-specific link in resume.json
+    tech: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      ,
+    ],
+    title: "Karkhana Management",
+    isScrollingEnabled: true,
+    description:
+      "Full-stack ERP system with inventory, sales, payroll, and multi-company management using React, Node.js, and MongoDB. Role-based access control for admins, managers, and employees. Responsive UI with Tailwind CSS.",
+  },
+  {
+    id: 2,
     url: "https://mock-miya.vercel.app/", // From resume.json
     clientGithubUrl: "https://github.com/Pullock4981/MockMiya_client.git", // From resume.json
     serverGithubUrl: "https://github.com/Pullock4981/MockMiya_client.git", // No server-specific link in resume.json
     tech: [
-      "Mext.js",
+      "Next.js",
       "Node.js",
       "Express.js",
       "MongoDB",
@@ -249,7 +267,7 @@ const projectTechStacks = [
       "AI-powered resume generator that creates tailored, role-specific resumes instantly. Interactive interview simulator with text, voice, and video practice modes. Performance analytics and export tools for tracking progress and downloading polished resumes.",
   },
   {
-    id: 2,
+    id: 3,
     url: "https://petuk-22f6f.web.app/",
     clientGithubUrl: "https://github.com/hd31520/petuk-clint",
     serverGithubUrl: "https://github.com/hd31520/petuk-server",
@@ -268,7 +286,7 @@ const projectTechStacks = [
       "Full-stack MERN platform for managing orders, tables, and reservations. Implemented secure JWT-based authentication & Firebase login. Developed a responsive Ul with Tailwind CSS.",
   },
   {
-    id: 3,
+    id: 4,
     url: "https://adop-a3a82.web.app/",
     clientGithubUrl: "https://github.com/hd31520/Pet-Adoption",
     serverGithubUrl: "https://github.com/hd31520/petadopter-server",
