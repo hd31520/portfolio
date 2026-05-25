@@ -168,7 +168,7 @@ const Banner = ({ title, imageUrl, imageAlt }) => {
               className="flex flex-wrap gap-4"
             >
               <a 
-                href="#contact" 
+                href="/contact" 
                 className={`flex items-center gap-2 px-5 py-3 rounded-full transition-all ${theme === 'dark' ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : 'bg-indigo-600 hover:bg-indigo-700 text-white'} shadow-md hover:shadow-lg`}
               >
                 <HiOutlineMail className="h-5 w-5" />

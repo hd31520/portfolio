@@ -30,7 +30,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className={`w-full py-16 transition-colors duration-300 ${
+    <section className={`w-full py-16 transition-colors duration-300 ${
       theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
     }`}>
       <div className="max-w-6xl mx-auto px-4">
