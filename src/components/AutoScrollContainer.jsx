@@ -6,7 +6,6 @@ const AutoScrollContainer = ({ src, scrollSpeed = 2, returnSpeed = 2, isScrollin
   const containerRef = useRef(null);
   const animationFrameId = useRef(null);
   const scrollDirection = useRef(0);
-  console.log(isScrollingEnabled)
 
   // Function to handle continuous scrolling
   const animateScroll = () => {

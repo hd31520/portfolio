@@ -60,11 +60,12 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-2">
-              <FooterLink href="#home" text="Home" />
-              <FooterLink href="#about" text="About" />
-              <FooterLink href="#services" text="Services" />
-              <FooterLink href="#projects" text="Projects" />
-              <FooterLink href="#contact" text="Contact" />
+              <FooterLink href="/" text="Home" />
+              <FooterLink href="/about" text="About" />
+              <FooterLink href="/technologies" text="Technologies" />
+              <FooterLink href="/services" text="Services" />
+              <FooterLink href="/projects" text="Projects" />
+              <FooterLink href="/contact" text="Contact" />
             </ul>
           </div>
 
@@ -76,11 +77,11 @@ const Footer = () => {
               Services
             </h3>
             <ul className="space-y-2">
-              <FooterLink href="#" text="Web Development" />
-              <FooterLink href="#" text="UI/UX Design" />
-              <FooterLink href="#" text="Mobile Optimization" />
-              <FooterLink href="#" text="Backend Development" />
-              <FooterLink href="#" text="Performance Tuning" />
+              <FooterLink href="/services" text="Web Development" />
+              <FooterLink href="/services" text="UI/UX Design" />
+              <FooterLink href="/services" text="Mobile Optimization" />
+              <FooterLink href="/services" text="Backend Development" />
+              <FooterLink href="/services" text="Performance Tuning" />
             </ul>
           </div>
 
@@ -99,7 +100,7 @@ const Footer = () => {
               Interested in working together? Let's connect and discuss your project.
             </p>
             <Link 
-              href="#contact" 
+              href="/contact" 
               className={`inline-block px-4 py-2 rounded-md font-medium ${
                 theme === 'dark' 
                   ? 'bg-indigo-600 hover:bg-indigo-700 text-white' 

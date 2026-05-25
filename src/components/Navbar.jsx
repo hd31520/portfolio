@@ -34,10 +34,12 @@ const Navbar = () => {
 
           {/* Desktop Navigation Links and Theme Toggle */}
           <div className="hidden md:flex  items-center space-x-4">
-            <NavLink className="dark:bg-white" href="/" text="Home" />
-            <NavLink className="dark:bg-white" href="#about" text="About" />
-            <NavLink className="dark:bg-white" href="#services" text="Services" />
-            <NavLink className="dark:bg-white" href="#contact" text="Contact" />
+            <NavLink href="/" text="Home" />
+            <NavLink href="/about" text="About" />
+            <NavLink href="/technologies" text="Technologies" />
+            <NavLink href="/projects" text="Projects" />
+            <NavLink href="/services" text="Services" />
+            <NavLink href="/contact" text="Contact" />
 
             {/* Theme Toggle Button */}
             <button
@@ -103,9 +105,11 @@ const Navbar = () => {
         <div className="md:hidden bg-[var(--banner-bg-color)]" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <MobileNavLink href="/" text="Home" />
-            <MobileNavLink href="#about" text="About" />
-            <MobileNavLink href="#services" text="Services" />
-            <MobileNavLink href="#contact" text="Contact" />
+            <MobileNavLink href="/about" text="About" />
+            <MobileNavLink href="/technologies" text="Technologies" />
+            <MobileNavLink href="/projects" text="Projects" />
+            <MobileNavLink href="/services" text="Services" />
+            <MobileNavLink href="/contact" text="Contact" />
             {/* Theme Toggle for Mobile */}
             <button
               onClick={toggleTheme}
