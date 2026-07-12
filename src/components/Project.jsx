@@ -264,6 +264,35 @@ const techIcons = [
 ];
 const projectTechStacks = [
   {
+    id: 5,
+    url: "https://easyschool.live",
+    image: "https://i.ibb.co/LzJXB9xL/school.png",
+    clientGithubUrl: "https://github.com/menajpal-design/school-clint.git",
+    serverGithubUrl: "https://github.com/menajpal-design/school-server.git",
+    tech: [
+      "Next.js",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "Express.js",
+      "MongoDB",
+      "PDFKit",
+      "Tailwind CSS",
+    ],
+    title: "Easy School — Multi-tenant School Management System",
+    isScrollingEnabled: true,
+    description: "Easy School is a multi-tenant school management platform that centralizes academic operations — admissions, attendance, fees/billing, report cards, SMS notifications, and administrative dashboards — across tenants (schools). It includes a Next.js frontend and a TypeScript/Express backend with rich PDF and SMS utilities.",
+    features: [
+      "Multi-tenant school management with subdomains and complete data isolation",
+      "Role-Based Access Control (Admin, Teacher, Accountant, Guardian, Student)",
+      "Daily attendance tracking, student profiles, and academic records",
+      "Automated billing, invoicing, and Stripe-ready payment hooks",
+      "Server-side PDF exports for report cards, receipts, and official letters",
+      "SMS notification scripts for guardians (monthly-sms, send-previous-sms-now)",
+      "Secure file uploads (multer) and archival exports (archiver)"
+    ]
+  },
+  {
     id: 1,
     url: "https://www.karkhana.shop/",
     image: "https://i.ibb.co/1YbkTyJR/karkhana.png",
@@ -308,6 +337,54 @@ const projectTechStacks = [
       "Interactive text-to-speech mock interview simulator",
       "Real-time voice and video answer analysis using AI",
       "Detailed scoring sheets and visual progress analytics dashboards"
+    ]
+  },
+  {
+    id: 7,
+    url: "https://fleet-web.duckdns.org/",
+    image: "https://i.ibb.co/PzhJ49H4/fleet-web-duckdns-org-2026-07-12-14-48-16.png",
+    clientGithubUrl: "https://github.com/menajpal-design/car-manage",
+    serverGithubUrl: "https://github.com/menajpal-design/car-manage",
+    tech: [
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.io",
+      "Tailwind CSS",
+    ],
+    title: "FleetMaster Pro — Enterprise Fleet & Operations SaaS",
+    isScrollingEnabled: true,
+    description: "A multi-tenant SaaS platform featuring real-time GPS tracking (SinoTrack), double-entry financial ledger (P&L), driver dispatch logs, and interactive team attendance calendars with printable official records.",
+    features: [
+      "Role-Based Access Control (Owner, Manager, Driver, Technician, Helper)",
+      "Real-time GPS device integration & telemetry route history via Leaflet Maps",
+      "Interactive calendar board for team attendance tracking",
+      "Self-contained MongoDB binary file storage (zero external dependencies)",
+      "Vehicle-specific financial dashboards (fuel, repairs, and net profit ledger)",
+      "Print-ready official HR ledgers and automatic PDF Profit & Loss statement exporter"
+    ]
+  },
+  {
+    id: 8,
+    url: "https://pdf-reader-and-transltor.vercel.app/",
+    image: "https://i.ibb.co/yFtbTMTb/pdf-reader-and-transltor-vercel-app-2026-07-12-14-50-40.png",
+    clientGithubUrl: "https://github.com/hd31520/pdf-canvas-translator",
+    serverGithubUrl: "https://github.com/hd31520/pdf-canvas-translator",
+    tech: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "Vite",
+    ],
+    title: "PDF Canvas Reader & Translator",
+    isScrollingEnabled: false,
+    description: "Advanced PDF viewer executing inline translations and text extraction by utilizing Canvas rendering technology.",
+    features: [
+      "Direct document page-by-page rendering via HTML5 Canvas API",
+      "Optical character recognition (OCR) via selection crop tool",
+      "Real-time translation overlay to convert pages to another language",
+      "Clean PDF export tool supporting edited/translated versions"
     ]
   },
   {
@@ -356,84 +433,6 @@ const projectTechStacks = [
       "Interactive adoption application and shelter review request queues",
       "Secure dashboard portal for shelter admins to verify adopters",
       "Integrated online pet care advice, blogs, and community forums"
-    ]
-  },
-  {
-    id: 5,
-    url: "https://easyschool.live",
-    image: "https://i.ibb.co/LzJXB9xL/school.png",
-    clientGithubUrl: "https://github.com/menajpal-design/school-clint.git",
-    serverGithubUrl: "https://github.com/menajpal-design/school-server.git",
-    tech: [
-      "Next.js",
-      "React",
-      "Node.js",
-      "TypeScript",
-      "Express.js",
-      "MongoDB",
-      "PDFKit",
-      "Tailwind CSS",
-    ],
-    title: "Easy School — Multi-tenant School Management System",
-    isScrollingEnabled: true,
-    description: "Easy School is a multi-tenant school management platform that centralizes academic operations — admissions, attendance, fees/billing, report cards, SMS notifications, and administrative dashboards — across tenants (schools). It includes a Next.js frontend and a TypeScript/Express backend with rich PDF and SMS utilities.",
-    features: [
-      "Multi-tenant school management with subdomains and complete data isolation",
-      "Role-Based Access Control (Admin, Teacher, Accountant, Guardian, Student)",
-      "Daily attendance tracking, student profiles, and academic records",
-      "Automated billing, invoicing, and Stripe-ready payment hooks",
-      "Server-side PDF exports for report cards, receipts, and official letters",
-      "SMS notification scripts for guardians (monthly-sms, send-previous-sms-now)",
-      "Secure file uploads (multer) and archival exports (archiver)"
-    ]
-  },
-
-  {
-    id: 7,
-    url: "https://fleet-web.duckdns.org/",
-    image: "https://i.ibb.co/PzhJ49H4/fleet-web-duckdns-org-2026-07-12-14-48-16.png",
-    clientGithubUrl: "https://github.com/menajpal-design/car-manage",
-    serverGithubUrl: "https://github.com/menajpal-design/car-manage",
-    tech: [
-      "Next.js",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Socket.io",
-      "Tailwind CSS",
-    ],
-    title: "FleetMaster Pro — Enterprise Fleet & Operations SaaS",
-    isScrollingEnabled: true,
-    description: "A multi-tenant SaaS platform featuring real-time GPS tracking (SinoTrack), double-entry financial ledger (P&L), driver dispatch logs, and interactive team attendance calendars with printable official records.",
-    features: [
-      "Role-Based Access Control (Owner, Manager, Driver, Technician, Helper)",
-      "Real-time GPS device integration & telemetry route history via Leaflet Maps",
-      "Interactive calendar board for team attendance tracking",
-      "Self-contained MongoDB binary file storage (zero external dependencies)",
-      "Vehicle-specific financial dashboards (fuel, repairs, and net profit ledger)",
-      "Print-ready official HR ledgers and automatic PDF Profit & Loss statement exporter"
-    ]
-  },
-  {
-    id: 8,
-    url: "https://pdf-reader-and-transltor.vercel.app/",
-    image: "https://i.ibb.co/yFtbTMTb/pdf-reader-and-transltor-vercel-app-2026-07-12-14-50-40.png",
-    clientGithubUrl: "https://github.com/hd31520/pdf-canvas-translator",
-    serverGithubUrl: "https://github.com/hd31520/pdf-canvas-translator",
-    tech: [
-      "React",
-      "Node.js",
-      "Express.js",
-      "Vite",
-    ],
-    title: "PDF Canvas Reader & Translator",
-    isScrollingEnabled: false,
-    description: "Advanced PDF viewer executing inline translations and text extraction by utilizing Canvas rendering technology.",
-    features: [
-      "Direct document page-by-page rendering via HTML5 Canvas API",
-      "Optical character recognition (OCR) via selection crop tool",
-      "Real-time translation overlay to convert pages to another language",
-      "Clean PDF export tool supporting edited/translated versions"
     ]
   },
 ];
