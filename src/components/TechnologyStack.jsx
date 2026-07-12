@@ -25,7 +25,7 @@ const TechnologyStack = ({ id }) => {
     },
     {
       name: "Express.js",
-      icon: <SiExpress className="h-8 w-8 text-gray-300" />,
+      icon: <SiExpress className="h-8 w-8 text-gray-400 dark:text-gray-300" />,
       description: "Minimalist web framework for Node.js to create scalable RESTful APIs.",
       glowColor: "rgba(255, 255, 255, 0.1)",
     },
@@ -55,7 +55,7 @@ const TechnologyStack = ({ id }) => {
     },
     {
       name: "Next.js",
-      icon: <SiNextdotjs className="h-8 w-8 text-white" />,
+      icon: <SiNextdotjs className="h-8 w-8 text-[var(--color-foreground)]" />,
       description: "React framework for production-ready SSR, static generation, and page routing.",
       glowColor: "rgba(255, 255, 255, 0.15)",
     },
@@ -64,21 +64,21 @@ const TechnologyStack = ({ id }) => {
   return (
     <section
       id={id}
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-[#050816] text-white relative overflow-hidden"
+      className="py-24 px-4 sm:px-6 lg:px-8 bg-[var(--color-background)] text-[var(--color-foreground)] relative overflow-hidden transition-colors duration-300"
     >
       {/* Background vector glow */}
-      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] rounded-full bg-indigo-500/[var(--glow-opacity)] blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Title */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold mb-3">
             Core Expertise
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-foreground)] tracking-tight">
             My Technology Stack
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mt-2 leading-relaxed">
+          <p className="text-[var(--text-muted)] text-sm sm:text-base max-w-xl mx-auto mt-2 leading-relaxed">
             The programming languages, frameworks, and backend solutions I leverage to engineer premium applications.
           </p>
         </div>
@@ -94,19 +94,19 @@ const TechnologyStack = ({ id }) => {
               transition={{ duration: 0.4, delay: index * 0.05 }}
               whileHover={{ 
                 y: -5,
-                boxShadow: `0 10px 30px ${skill.glowColor}`,
+                boxShadow: theme === 'dark' ? `0 10px 30px ${skill.glowColor}` : '0 10px 30px rgba(0,0,0,0.05)',
                 borderColor: "rgba(34, 197, 94, 0.3)"
               }}
-              className="p-6 rounded-[22px] bg-white/5 border border-white/5 shadow-lg flex flex-col items-start gap-4 transition-all duration-300 group"
+              className="p-6 rounded-[22px] bg-[var(--card-bg)] border border-[var(--card-border)] shadow-lg flex flex-col items-start gap-4 transition-all duration-300 group"
             >
-              <div className="p-3.5 rounded-2xl bg-white/5 group-hover:scale-105 transition-transform duration-300">
+              <div className="p-3.5 rounded-2xl bg-white/5 border border-transparent group-hover:border-[var(--card-border)] group-hover:scale-105 transition-transform duration-300">
                 {skill.icon}
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white group-hover:text-green-400 transition-colors duration-200">
+                <h3 className="text-lg font-bold text-[var(--color-foreground)] group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-200">
                   {skill.name}
                 </h3>
-                <p className="text-gray-400 text-xs mt-1.5 leading-relaxed">
+                <p className="text-[var(--text-muted)] text-xs mt-1.5 leading-relaxed">
                   {skill.description}
                 </p>
               </div>

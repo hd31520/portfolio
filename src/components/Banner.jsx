@@ -87,13 +87,13 @@ const Banner = ({ title }) => {
   const { theme } = useTheme();
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050816] pt-16">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--color-background)] pt-16 transition-colors duration-300">
       {/* Background SVG Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--card-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--card-border)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
 
       {/* Glowing blur effects */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-green-500/5 blur-[120px] mix-blend-screen pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-indigo-500/5 blur-[100px] mix-blend-screen pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-green-500/[var(--glow-opacity)] blur-[120px] mix-blend-screen pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-indigo-500/[var(--glow-opacity)] blur-[100px] mix-blend-screen pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 py-20 w-full z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -105,19 +105,19 @@ const Banner = ({ title }) => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold tracking-wide"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold tracking-wide"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
               MERN Stack Developer
             </motion.div>
 
             {/* Main Header */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none">
-              Hi, I'm <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-indigo-400 bg-clip-text text-transparent">{title}</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--color-foreground)] tracking-tight leading-none">
+              Hi, I'm <span className="bg-gradient-to-r from-green-500 via-emerald-400 to-indigo-500 bg-clip-text text-transparent">{title}</span>
             </h1>
 
             {/* Description */}
-            <p className="text-gray-400 text-base sm:text-lg max-w-xl leading-relaxed">
+            <p className="text-[var(--text-muted)] text-base sm:text-lg max-w-xl leading-relaxed">
               Build modern web applications with clean code and exceptional user experience. Specializing in highly interactive React & Next.js systems and secure backend APIs.
             </p>
 
@@ -127,7 +127,7 @@ const Banner = ({ title }) => {
                 href="/projects" 
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 px-6 py-3 rounded-full bg-green-500 hover:bg-green-600 text-[#050816] text-sm font-bold shadow-lg shadow-green-500/10 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 rounded-full bg-green-500 hover:bg-green-600 text-white text-sm font-bold shadow-lg shadow-green-500/10 transition-colors"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4" />
@@ -136,7 +136,7 @@ const Banner = ({ title }) => {
                 href="/#contact" 
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 text-sm font-semibold transition-colors"
+                className="flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--card-bg)] hover:bg-[var(--card-bg)]/80 text-[var(--color-foreground)] border border-[var(--card-border)] text-sm font-semibold transition-colors"
               >
                 Contact Me
               </motion.a>
@@ -155,7 +155,7 @@ const Banner = ({ title }) => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-white/5 border border-white/5 text-gray-400 hover:text-green-500 hover:border-green-500/30 hover:bg-white/10 transition-all shadow-sm"
+                  className="p-3 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--text-muted)] hover:text-green-500 hover:border-green-500/30 hover:bg-[var(--card-bg)]/80 transition-all shadow-sm"
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.95 }}
                 >

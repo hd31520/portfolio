@@ -735,7 +735,7 @@ const ProjectMockup = ({ projectId, theme }) => {
 
     default:
       return (
-        <div className="w-full h-full flex items-center justify-center bg-[#070c1e] text-gray-500 text-xs">
+        <div className="w-full h-full flex items-center justify-center bg-[var(--color-background)] border border-[var(--card-border)] text-gray-500 text-xs">
           No Mockup Available
         </div>
       );
@@ -746,19 +746,19 @@ const Project = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="w-full min-h-screen bg-[#050816] text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="w-full min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)] py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden transition-colors duration-300">
       {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--card-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--card-border)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
 
       {/* Header */}
       <div className="text-center mb-16 max-w-xl mx-auto">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-xs font-semibold mb-3">
           My Creations
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--color-foreground)] tracking-tight">
           Featured Projects
         </h1>
-        <p className="text-gray-400 text-xs sm:text-sm mt-2 leading-relaxed">
+        <p className="text-[var(--text-muted)] text-xs sm:text-sm mt-2 leading-relaxed">
           Explore a curated selection of full-stack MERN & React applications, engineered for production scalability.
         </p>
       </div>
@@ -774,23 +774,23 @@ const Project = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className={`w-full grid md:grid-cols-2 gap-8 items-center bg-white/5 border border-white/5 p-6 sm:p-8 rounded-[24px] shadow-lg transition-all duration-300 ${
+              className={`w-full grid md:grid-cols-2 gap-8 items-center bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 rounded-[24px] shadow-lg transition-all duration-300 ${
                 isFeatured ? "ring-1 ring-green-500/20 shadow-[0_20px_50px_rgba(34,197,94,0.05)] border-green-500/10" : "hover:border-green-500/15"
               }`}
             >
               {/* Project Details */}
               <div className={`space-y-5 ${index % 2 === 0 ? "order-1 md:order-2" : "order-1 md:order-1"}`}>
                 {isFeatured && (
-                  <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-green-500/10 border border-green-500/25 text-green-400 text-[9px] font-bold uppercase tracking-wider">
+                  <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-green-500/10 border border-green-500/25 text-green-600 dark:text-green-400 text-[9px] font-bold uppercase tracking-wider">
                     ★ Featured Project
                   </div>
                 )}
                 
-                <h2 className="text-2xl font-bold text-white tracking-tight">
+                <h2 className="text-2xl font-bold text-[var(--color-foreground)] tracking-tight">
                   {project.title}
                 </h2>
                 
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed">
                   {project.description}
                 </p>
 
@@ -798,7 +798,7 @@ const Project = () => {
                 {project.features && (
                   <ul className="space-y-1.5">
                     {project.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs text-gray-400">
+                      <li key={i} className="flex items-start gap-2 text-xs text-[var(--text-muted)]">
                         <span className="text-green-500 mt-1 flex-shrink-0">•</span>
                         <span className="leading-relaxed">{feature}</span>
                       </li>
@@ -814,7 +814,7 @@ const Project = () => {
                       <div
                         key={icon.name}
                         title={icon.name}
-                        className="flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/5 text-gray-300 hover:text-white transition-colors"
+                        className="flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-semibold bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--text-muted)] hover:text-[var(--color-foreground)] transition-colors"
                       >
                         <span className="flex items-center justify-center">{icon.icon}</span>
                         <span>{icon.name}</span>
@@ -830,7 +830,7 @@ const Project = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex items-center gap-1.5 px-4.5 py-2.5 rounded-full bg-green-500 hover:bg-green-600 text-[#050816] text-xs font-bold transition-all shadow-md shadow-green-500/5"
+                    className="flex items-center gap-1.5 px-4.5 py-2.5 rounded-full bg-green-500 hover:bg-green-600 text-white text-xs font-bold transition-all shadow-md shadow-green-500/5"
                   >
                     Live Demo <FaArrowRight className="h-3 w-3" />
                   </motion.a>
@@ -840,7 +840,7 @@ const Project = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 text-xs font-semibold transition-all"
+                    className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[var(--card-bg)] hover:bg-[var(--card-bg)]/80 text-[var(--color-foreground)] border border-[var(--card-border)] text-xs font-semibold transition-all"
                   >
                     <FaGithub className="h-3.5 w-3.5" /> Client
                   </motion.a>
@@ -851,7 +851,7 @@ const Project = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 text-xs font-semibold transition-all"
+                      className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[var(--card-bg)] hover:bg-[var(--card-bg)]/80 text-[var(--color-foreground)] border border-[var(--card-border)] text-xs font-semibold transition-all"
                     >
                       <FaGithub className="h-3.5 w-3.5" /> Server
                     </motion.a>
@@ -863,20 +863,20 @@ const Project = () => {
               <motion.div
                 whileHover={{ scale: 1.01 }}
                 onClick={() => window.open(project.url, "_blank", "noopener noreferrer")}
-                className={`h-[280px] sm:h-[340px] w-full rounded-2xl overflow-hidden shadow-lg border border-white/5 cursor-pointer relative group ${
+                className={`h-[280px] sm:h-[340px] w-full rounded-2xl overflow-hidden shadow-lg border border-[var(--card-border)] cursor-pointer relative group ${
                   index % 2 === 0 ? "order-2 md:order-1" : "order-2 md:order-2"
                 }`}
               >
                 {project.image ? (
-                  <div className="w-full h-full relative overflow-hidden bg-[#070c1e]">
+                  <div className="w-full h-full relative overflow-hidden bg-[var(--color-background)]">
                     {/* Browser-like header */}
-                    <div className="absolute top-0 left-0 right-0 z-10 flex items-center gap-2 px-4 py-2 bg-[#0b1129]/90 backdrop-blur-sm border-b border-white/5 text-[9px] text-gray-500 select-none">
+                    <div className="absolute top-0 left-0 right-0 z-10 flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)]/90 backdrop-blur-sm border-b border-[var(--card-border)] text-[9px] text-[var(--text-muted)] select-none">
                       <div className="flex gap-1.5 flex-shrink-0">
                         <div className="w-2 h-2 rounded-full bg-red-500/70"></div>
                         <div className="w-2 h-2 rounded-full bg-yellow-500/70"></div>
                         <div className="w-2 h-2 rounded-full bg-green-500/70"></div>
                       </div>
-                      <div className="flex-1 mx-4 px-3 py-0.5 bg-[#050816] rounded border border-white/5 text-center font-mono overflow-hidden whitespace-nowrap text-ellipsis text-gray-400">
+                      <div className="flex-1 mx-4 px-3 py-0.5 bg-[var(--color-background)] rounded border border-[var(--card-border)] text-center font-mono overflow-hidden whitespace-nowrap text-ellipsis text-[var(--text-muted)]">
                         {project.url.replace(/^https?:\/\//, "")}
                       </div>
                     </div>
@@ -890,7 +890,7 @@ const Project = () => {
                     </div>
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="bg-white text-[#050816] px-4 py-2 rounded-full text-[10px] font-bold shadow-md flex items-center gap-1.5 transition-transform duration-300 translate-y-2 group-hover:translate-y-0">
+                      <span className="bg-white text-slate-900 px-4 py-2 rounded-full text-[10px] font-bold shadow-md flex items-center gap-1.5 transition-transform duration-300 translate-y-2 group-hover:translate-y-0">
                         Open Live Site <FaArrowRight className="h-3 w-3" />
                       </span>
                     </div>

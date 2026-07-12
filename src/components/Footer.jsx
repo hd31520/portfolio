@@ -24,16 +24,16 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full bg-[#050816] border-t border-white/5 text-gray-400">
+    <footer className="w-full bg-[var(--color-background)] border-t border-[var(--card-border)] text-[var(--text-muted)] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-white/5 pb-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-[var(--card-border)] pb-8">
           {/* Logo & Tagline */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
-            <Link href="/" className="flex items-center gap-2 text-white text-lg font-bold">
+            <Link href="/" className="flex items-center gap-2 text-[var(--color-foreground)] text-lg font-bold">
               <img className="h-7 w-7 rounded-full" src="/hridoy2.png" alt="Hridoy Logo" />
               <span>Md. Hridoy Sheikh</span>
             </Link>
-            <p className="text-xs text-gray-500 max-w-sm">
+            <p className="text-xs text-[var(--text-muted)] max-w-sm opacity-80">
               Crafting premium full-stack web applications with modern design systems and secure logic.
             </p>
           </div>
@@ -59,7 +59,7 @@ const Footer = () => {
                 href={social.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/5 text-gray-400 hover:text-green-500 hover:bg-white/10 transition-all duration-200"
+                className="p-2 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--text-muted)] hover:text-green-500 hover:bg-[var(--card-bg)]/80 transition-all duration-200"
                 aria-label={social.label}
               >
                 {social.icon}
@@ -69,7 +69,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8 text-[11px] text-gray-500">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8 text-[11px] opacity-70">
           <p>© {new Date().getFullYear()} Md. Hridoy Sheikh. All rights reserved.</p>
           <p className="flex items-center gap-1">
             Built with Next.js, Tailwind CSS, and <span className="text-green-500">❤️</span>

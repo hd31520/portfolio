@@ -14,36 +14,42 @@
 |--------------------------------------------------------------------------
 */
 :root {
-  /* Global Colors (Sleek Dark Theme as default) */
-  --color-background: #0a0f24;
-  --color-foreground: #f1f5f9;
+  /* Global Colors (Sleek Light Theme) */
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
   --font-sans: Inter, sans-serif;
   --font-mono: monospace;
 
   /* Theme color mapping (accent is soft green #22c55e) */
-  --color-indigo-600: #22c55e;
-  --color-indigo-500: #4ade80;
-  --color-indigo-700: #16a34a;
+  --color-indigo-600: #16a34a;
+  --color-indigo-500: #22c55e;
+  --color-indigo-700: #15803d;
 
-  --color-gray-900: #0a0f24;
-  --color-gray-800: #111827;
-  --color-gray-700: #1e293b;
-  --color-gray-600: #334155;
-  --color-gray-400: #94a3b8;
-  --color-gray-300: #cbd5e1;
-  --color-gray-200: #e2e8f0;
-  --color-gray-100: #f1f5f9;
-  --color-white: #ffffff;
+  --color-gray-900: #f8fafc;
+  --color-gray-800: #ffffff;
+  --color-gray-700: #e2e8f0;
+  --color-gray-600: #cbd5e1;
+  --color-gray-400: #64748b;
+  --color-gray-300: #475569;
+  --color-gray-200: #334155;
+  --color-gray-100: #1e293b;
+  --color-white: #0f172a;
+
+  /* Card and Border mapping */
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --text-muted: #475569;
+  --glow-opacity: 0.02;
 
   /* Banner specific background color variable */
-  --banner-bg-color: #0a0f24;
+  --banner-bg-color: #f8fafc;
 
   /* Navbar specific background color variable */
-  --navbar-bg-color: rgba(10, 15, 36, 0.75);
+  --navbar-bg-color: rgba(248, 250, 252, 0.8);
 
   /* Shadow colors */
-  --shadow-color-light: rgba(0, 0, 0, 0.3);
-  --shadow-color-dark: rgba(0, 0, 0, 0.6);
+  --shadow-color-light: rgba(0, 0, 0, 0.05);
+  --shadow-color-dark: rgba(0, 0, 0, 0.15);
 }
 
 /* Dark Mode Overrides (Deep Dark #050816) */
@@ -61,11 +67,17 @@ html[data-theme="dark"] {
   --color-gray-800: #0b1129;
   --color-gray-700: #15224f;
   --color-gray-600: #203477;
-  --color-gray-400: #64748b;
-  --color-gray-300: #94a3b8;
-  --color-gray-200: #cbd5e1;
-  --color-gray-100: #e2e8f0;
+  --color-gray-400: #94a3b8;
+  --color-gray-300: #cbd5e1;
+  --color-gray-200: #e2e8f0;
+  --color-gray-100: #f1f5f9;
   --color-white: #ffffff;
+
+  /* Card and Border mapping */
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.05);
+  --text-muted: #94a3b8;
+  --glow-opacity: 0.05;
 
   /* Banner specific background color override */
   --banner-bg-color: #050816;
