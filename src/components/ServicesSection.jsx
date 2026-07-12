@@ -10,7 +10,7 @@ import {
   Rocket,
 } from "lucide-react";
 
-const ServicesSection = ({ id }) => {
+const ServicesSection = () => {
   const { theme } = useTheme();
 
   const services = [
@@ -53,7 +53,6 @@ const ServicesSection = ({ id }) => {
 
   return (
     <section
-      id={id}
       className={`w-full py-16 transition-colors duration-300 ${
         theme === "dark"
           ? "bg-gray-900 text-white"

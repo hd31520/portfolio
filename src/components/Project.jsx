@@ -793,7 +793,6 @@ const ProjectMockup = ({ projectId, theme }) => {
 
 const Project = () => {
   const { theme } = useTheme();
-  console.log("Current Theme:", theme);
 
   return (
     <div className=" w-full p-4 space-y-12 relative">

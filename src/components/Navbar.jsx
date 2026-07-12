@@ -32,10 +32,10 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation Links and Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
             <NavLink href="/" text="Home" />
             <NavLink href="/#about" text="About" />
+            <NavLink href="/#technologies" text="Technologies" />
             <NavLink href="/#services" text="Services" />
             <NavLink href="/projects" text="Projects" />
             <NavLink href="/#contact" text="Contact" />
@@ -105,6 +105,7 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <MobileNavLink href="/" text="Home" />
             <MobileNavLink href="/#about" text="About" />
+            <MobileNavLink href="/#technologies" text="Technologies" />
             <MobileNavLink href="/#services" text="Services" />
             <MobileNavLink href="/projects" text="Projects" />
             <MobileNavLink href="/#contact" text="Contact" />
