@@ -264,7 +264,7 @@ const techIcons = [
 ];
 const projectTechStacks = [
   {
-    id: 5,
+    id: 1,
     url: "https://easyschool.live",
     image: "https://i.ibb.co/LzJXB9xL/school.png",
     clientGithubUrl: "https://github.com/menajpal-design/school-clint.git",
@@ -293,7 +293,7 @@ const projectTechStacks = [
     ]
   },
   {
-    id: 1,
+    id: 2,
     url: "https://www.karkhana.shop/",
     image: "https://i.ibb.co/1YbkTyJR/karkhana.png",
     clientGithubUrl: "https://github.com/hd31520/karkhana-clint",
@@ -316,7 +316,7 @@ const projectTechStacks = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     url: "https://mock-miya.vercel.app/",
     image: "https://i.ibb.co/7dj1vzs8/mock-miya-vercel-app-2026-07-12-14-35-01.png",
     clientGithubUrl: "https://github.com/Pullock4981/MockMiya_client.git",
@@ -340,7 +340,7 @@ const projectTechStacks = [
     ]
   },
   {
-    id: 7,
+    id: 4,
     url: "https://fleet-web.duckdns.org/",
     image: "https://i.ibb.co/PzhJ49H4/fleet-web-duckdns-org-2026-07-12-14-48-16.png",
     clientGithubUrl: "https://github.com/menajpal-design/car-manage",
@@ -366,7 +366,7 @@ const projectTechStacks = [
     ]
   },
   {
-    id: 8,
+    id: 5,
     url: "https://pdf-reader-and-transltor.vercel.app/",
     image: "https://i.ibb.co/yFtbTMTb/pdf-reader-and-transltor-vercel-app-2026-07-12-14-50-40.png",
     clientGithubUrl: "https://github.com/hd31520/pdf-canvas-translator",
@@ -388,7 +388,7 @@ const projectTechStacks = [
     ]
   },
   {
-    id: 3,
+    id: 6,
     url: "https://petuk-22f6f.web.app/",
     image: "https://i.ibb.co/rRL5bg0R/petuk-22f6f-web-app-2026-07-12-14-36-21.png",
     clientGithubUrl: "https://github.com/hd31520/petuk-clint",
@@ -412,7 +412,7 @@ const projectTechStacks = [
     ]
   },
   {
-    id: 4,
+    id: 7,
     url: "https://adop-a3a82.web.app/",
     image: "https://i.ibb.co/Q2jffXq/screencapture-adop-a3a82-web-app-2026-07-12-16-12-14.png",
     clientGithubUrl: "https://github.com/hd31520/Pet-Adoption",
@@ -453,7 +453,7 @@ const ProjectMockup = ({ projectId, theme }) => {
   );
 
   switch (projectId) {
-    case 1: // Karkhana ERP
+    case 2: // Karkhana ERP
       return (
         <div className="w-full h-full flex flex-col font-sans bg-gray-50 dark:bg-gray-950 text-[11px]">
           {renderBrowserHeader("https://www.karkhana.shop")}
@@ -506,7 +506,7 @@ const ProjectMockup = ({ projectId, theme }) => {
         </div>
       );
 
-    case 2: // MockMiya AI
+    case 3: // MockMiya AI
       return (
         <div className="w-full h-full flex flex-col font-sans bg-gray-50 dark:bg-gray-950 text-[11px]">
           {renderBrowserHeader("https://mock-miya.vercel.app")}
@@ -551,7 +551,7 @@ const ProjectMockup = ({ projectId, theme }) => {
         </div>
       );
 
-    case 3: // Restaurant
+    case 6: // Restaurant
       return (
         <div className="w-full h-full flex flex-col font-sans bg-gray-50 dark:bg-gray-950 text-[11px]">
           {renderBrowserHeader("https://petuk-22f6f.web.app")}
@@ -583,7 +583,7 @@ const ProjectMockup = ({ projectId, theme }) => {
         </div>
       );
 
-    case 4: // Pet Adoption
+    case 7: // Pet Adoption
       return (
         <div className="w-full h-full flex flex-col font-sans bg-gray-50 dark:bg-gray-950 text-[11px]">
           {renderBrowserHeader("https://adop-a3a82.web.app")}
@@ -612,7 +612,7 @@ const ProjectMockup = ({ projectId, theme }) => {
         </div>
       );
 
-    case 5: // Easy School ERP
+    case 1: // Easy School ERP
       return (
         <div className="w-full h-full flex flex-col font-sans bg-gray-50 dark:bg-gray-950 text-[11px]">
           {renderBrowserHeader("https://easyschool.live")}
@@ -654,7 +654,7 @@ const ProjectMockup = ({ projectId, theme }) => {
         </div>
       );
 
-    case 7: // FleetMaster Pro
+    case 4: // FleetMaster Pro
       return (
         <div className="w-full h-full flex flex-col font-sans bg-gray-50 dark:bg-gray-950 text-[11px]">
           {renderBrowserHeader("https://fleet-web.duckdns.org")}
@@ -697,7 +697,7 @@ const ProjectMockup = ({ projectId, theme }) => {
         </div>
       );
 
-    case 8: // PDF Reader
+    case 5: // PDF Reader
       return (
         <div className="w-full h-full flex flex-col font-sans bg-gray-50 dark:bg-gray-950 text-[11px]">
           {renderBrowserHeader("https://pdf-reader-and-transltor.vercel.app")}
