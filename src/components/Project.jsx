@@ -387,28 +387,7 @@ const projectTechStacks = [
       "Secure file uploads (multer) and archival exports (archiver)"
     ]
   },
-  {
-    id: 6,
-    url: "https://easy-school-mobile.vercel.app/",
-    clientGithubUrl: "https://github.com/hd31520/school-mobile-admin",
-    serverGithubUrl: "https://github.com/hd31520/school-mobile-admin",
-    tech: [
-      "React Native",
-      "React",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-    ],
-    title: "Easy School — Mobile & Admin Platform",
-    isScrollingEnabled: true,
-    description: "Hybrid mobile app suite paired with an Express dashboard to keep parents and administrators connected on the go.",
-    features: [
-      "Android/iOS push notifications for student announcements",
-      "Guardian login portal for tracking daily attendance and grades",
-      "Digital student ID card generator with quick scan QR codes",
-      "Class routine viewer and calendar events tracker"
-    ]
-  },
+
   {
     id: 7,
     url: "https://fleet-web.duckdns.org/",
@@ -669,34 +648,6 @@ const ProjectMockup = ({ projectId, theme }) => {
                 <div className="flex justify-between text-gray-500">
                   <span>monthly-sms task</span>
                   <span className="text-amber-500 font-semibold">Pending</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-
-    case 6: // Easy School Mobile
-      return (
-        <div className="w-full h-full flex flex-col font-sans bg-gray-50 dark:bg-gray-950 text-[11px]">
-          {renderBrowserHeader("https://easy-school-mobile.vercel.app")}
-          <div className="flex-1 p-2 flex justify-center items-center overflow-hidden">
-            {/* Smartphone Device Frame */}
-            <div className="w-[170px] h-[230px] rounded-2xl border-4 border-gray-800 bg-white dark:bg-black shadow-md flex flex-col relative overflow-hidden text-[9px]">
-              {/* Phone Speaker/Camera */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-gray-800 rounded-b-md flex justify-center items-center">
-                <div className="w-3 h-0.5 bg-gray-600 rounded"></div>
-              </div>
-              {/* App Content */}
-              <div className="flex-1 pt-3.5 p-2 flex flex-col gap-1.5 bg-indigo-50/20 dark:bg-gray-950/80">
-                <div className="font-bold text-gray-800 dark:text-gray-200 border-b dark:border-gray-800 pb-0.5 mt-0.5 flex items-center gap-1">📱 Guardian App</div>
-                <div className="bg-white dark:bg-gray-900 p-1.5 rounded border border-gray-100 dark:border-gray-800">
-                  <div className="font-bold text-green-600">Attendance Log</div>
-                  <div className="text-gray-500 text-[8px] mt-0.5">John was marked Present at 08:15 AM.</div>
-                </div>
-                <div className="bg-white dark:bg-gray-900 p-1.5 rounded border border-gray-100 dark:border-gray-800">
-                  <div className="font-bold text-indigo-600">Tuition Invoice</div>
-                  <div className="text-gray-500 text-[8px] mt-0.5">Invoice #ES-2401 generated for $120.00.</div>
                 </div>
               </div>
             </div>
