@@ -281,15 +281,15 @@ const projectTechStacks = [
     ],
     title: "Easy School — Multi-tenant School Management System",
     isScrollingEnabled: true,
-    description: "Easy School is a multi-tenant school management platform that centralizes academic operations — admissions, attendance, fees/billing, report cards, SMS notifications, and administrative dashboards — across tenants (schools). It includes a Next.js frontend and a TypeScript/Express backend with rich PDF and SMS utilities.",
+    description: "A robust, multi-tenant academic ERP SaaS platform designed to centralize administrative, financial, and educational operations. The system isolates data per tenant (school subdomain) and features integrated payment billing, automatic report card generation, and scheduled SMS notifications.",
     features: [
-      "Multi-tenant school management with subdomains and complete data isolation",
-      "Role-Based Access Control (Admin, Teacher, Accountant, Guardian, Student)",
-      "Daily attendance tracking, student profiles, and academic records",
-      "Automated billing, invoicing, and Stripe-ready payment hooks",
-      "Server-side PDF exports for report cards, receipts, and official letters",
-      "SMS notification scripts for guardians (monthly-sms, send-previous-sms-now)",
-      "Secure file uploads (multer) and archival exports (archiver)"
+      "Multi-tenant database routing with subdomain mappings to ensure complete data isolation",
+      "Granular Role-Based Access Control (RBAC) supporting Admin, Teacher, Accountant, Guardian, and Student",
+      "Automated academic fees engine with invoicing and Stripe checkout integration hooks",
+      "Server-side PDF generation via PDFKit for official report cards, payment receipts, and enrollment forms",
+      "Guardian notifications utility sending batch SMS alerts for monthly fees and dues",
+      "Secure document archiving and uploads using Multer with Winston logging middleware",
+      "Interactive dashboard charts compiling monthly attendance, fee collections, and tenant statistics"
     ]
   },
   {
@@ -307,12 +307,14 @@ const projectTechStacks = [
     ],
     title: "Karkhana Management ERP",
     isScrollingEnabled: true,
-    description: "Full-stack ERP system custom-built for manufacturing units (karkhanas) to automate inventory tracking, workflow processes, and financial transactions.",
+    description: "An enterprise-grade manufacturing workflow and stock ERP custom-engineered for factories (karkhanas). It automates raw material inventory, tracks production stages, manages double-entry bookkeeping, and processes worker payrolls based on daily production quotas.",
     features: [
-      "Role-based access control (Admin, Manager, and Employee portals)",
-      "Real-time raw material inventory and stock alerts",
-      "Automated employee payroll calculation and salary sheet logs",
-      "Multi-company bookkeeping and dynamic sales ledger reports"
+      "Live manufacturing inventory tracker with automated low-stock warnings and reorder alerts",
+      "Role-based workflows with dedicated portals for Factory Owners, Managers, and Laborers",
+      "Dynamic double-entry accounting ledger detailing manufacturing costs, sales, and net profit margins",
+      "Automatic payroll processing with logs for daily production quotas and employee salary slips",
+      "Multi-company accounting database structure supporting distinct business ledgers",
+      "Interactive production pipeline logs tracking raw materials from intake to finalized shipments"
     ]
   },
   {
@@ -331,12 +333,14 @@ const projectTechStacks = [
     ],
     title: "MockMiya — AI Interview Simulator",
     isScrollingEnabled: false,
-    description: "AI-driven mock interview simulator and resume optimization platform designed to boost candidate preparation efficiency.",
+    description: "An AI-powered interview preparation and resume scoring SaaS designed to simulate actual technical interviews. It parses resumes to extract relevant experience, dynamically prompts candidates using voice/video, and provides instant audio analytics and scoring logs.",
     features: [
-      "AI resume parsing with role-specific customization suggestions",
-      "Interactive text-to-speech mock interview simulator",
-      "Real-time voice and video answer analysis using AI",
-      "Detailed scoring sheets and visual progress analytics dashboards"
+      "Dynamic resume parsing with role-specific keyword matching and layout improvement tips",
+      "Interactive mock interview simulator utilizing speech-to-text and text-to-speech API engines",
+      "Real-time AI analysis grading answer relevance, vocabulary, vocal flow, and facial confidence",
+      "Comprehensive scoring dashboard displaying candidate performance logs and historical progress charts",
+      "Custom interview builder allowing candidates to target specific roles (Frontend, Backend, MERN)",
+      "Secure candidates database storing interview records and customized recommendation logs"
     ]
   },
   {
@@ -355,22 +359,23 @@ const projectTechStacks = [
     ],
     title: "FleetMaster Pro — Enterprise Fleet & Operations SaaS",
     isScrollingEnabled: true,
-    description: "A multi-tenant SaaS platform featuring real-time GPS tracking (SinoTrack), double-entry financial ledger (P&L), driver dispatch logs, and interactive team attendance calendars with printable official records.",
+    description: "A premium SaaS platform designed for transport and logistics firms to manage vehicles, drivers, and financial transactions. It features live GPS device telemetry, driver trip logging, interactive team calendars, and automated vehicle-specific profit-and-loss auditing.",
     features: [
-      "Role-Based Access Control (Owner, Manager, Driver, Technician, Helper)",
-      "Real-time GPS device integration & telemetry route history via Leaflet Maps",
-      "Interactive calendar board for team attendance tracking",
-      "Self-contained MongoDB binary file storage (zero external dependencies)",
-      "Vehicle-specific financial dashboards (fuel, repairs, and net profit ledger)",
-      "Print-ready official HR ledgers and automatic PDF Profit & Loss statement exporter"
+      "Real-time SinoTrack GPS device telemetry mapping coordinates, vehicle speed, and daily routes via Leaflet Maps",
+      "Unified attendance matrix allowing dispatchers to dynamically mark and audit driver/helper schedules",
+      "Role-Based Access Control with isolated portals for Fleet Owners, Dispatchers, Accountants, and Drivers",
+      "Actual driver trip logging tracking trip mileage (starting/ending odometers) and fuel receipts",
+      "Interactive double-entry vehicle ledger accounting for trip incomes, repairs, and net margins",
+      "Automated PDF statement generation exporting vehicle-specific P&L sheets for audit purposes",
+      "Self-contained MongoDB binary file storage (zero external dependencies) with optimized caching"
     ]
   },
   {
     id: 5,
     url: "https://pdf-reader-and-transltor.vercel.app/",
     image: "https://i.ibb.co/yFtbTMTb/pdf-reader-and-transltor-vercel-app-2026-07-12-14-50-40.png",
-    clientGithubUrl: "https://github.com/hd31520/pdf-canvas-translator",
-    serverGithubUrl: "https://github.com/hd31520/pdf-canvas-translator",
+    clientGithubUrl: "https://github.com/menajpal-design/pdf-reader-and-transltor.git",
+    serverGithubUrl: "https://github.com/menajpal-design/pdf-reader-and-transltor.git",
     tech: [
       "React",
       "Node.js",
@@ -379,12 +384,14 @@ const projectTechStacks = [
     ],
     title: "PDF Canvas Reader & Translator",
     isScrollingEnabled: false,
-    description: "Advanced PDF viewer executing inline translations and text extraction by utilizing Canvas rendering technology.",
+    description: "An advanced web-based PDF document reader and translator. It utilizes HTML5 Canvas to render high-fidelity document views, implements an interactive crop tool for instant OCR text extraction, and overlays real-time translations onto the original layout.",
     features: [
-      "Direct document page-by-page rendering via HTML5 Canvas API",
-      "Optical character recognition (OCR) via selection crop tool",
-      "Real-time translation overlay to convert pages to another language",
-      "Clean PDF export tool supporting edited/translated versions"
+      "High-performance document rendering utilizing direct page-by-page HTML5 Canvas API streams",
+      "Optical Character Recognition (OCR) scanner utilizing crop tools to capture and extract text from images",
+      "Real-time multi-language translation engine overlaying translated text directly onto the document layout",
+      "Integrated PDF exporter saving modified pages with translated overlays as high-quality PDF files",
+      "Custom markup controls allowing users to highlight, draw, and add notes to document canvas layers",
+      "Secure history library saving previously rendered PDFs and translated document templates"
     ]
   },
   {
@@ -401,14 +408,16 @@ const projectTechStacks = [
       "Tailwind CSS",
       "Firebase",
     ],
-    title: "Restaurant Management Online",
+    title: "Restaurant Management Online (Petuk)",
     isScrollingEnabled: false,
-    description: "End-to-end food ordering, reservation management, and kitchen POS billing system for streamlined eatery operations.",
+    description: "A modern restaurant management and online food ordering SaaS. It includes digital interactive menus, real-time table reservations, secure checkout pipelines, and a kitchen POS board showing pending order tickets for chefs.",
     features: [
-      "Dynamic digital food menu with categorization and instant search filters",
-      "Real-time table reservation and reservation verification system",
-      "Secure JWT-based user authentication and order tracking history",
-      "Integrated sales analytics and kitchen order progress tracker"
+      "Fully interactive digital food menu with fast category searching and responsive filters",
+      "Real-time table reservation calendar validating table availability instantly",
+      "Chef/POS dashboard displaying live order tickets with status updates (Pending, Cooking, Served)",
+      "Secure customer checkout pipeline with order history tracking and JWT session protection",
+      "Visual sales analytics dashboard tracking total daily revenue, popular items, and order volume",
+      "Integrated discount code system enabling administrators to manage promotional campaigns"
     ]
   },
   {
@@ -427,12 +436,14 @@ const projectTechStacks = [
     ],
     title: "Pet Adoption Platform",
     isScrollingEnabled: true,
-    description: "A community pet shelter database connecting animal lovers with pet rescue operations to facilitate seamless adoptions.",
+    description: "A full-stack pet rescue database and adoption matching platform. It lists homeless animals with comprehensive medical logs, allows users to submit interactive adoption applications, and provides a portal for shelter staff to review and approve matches.",
     features: [
-      "Comprehensive pet database with age, breed, and medical history tracking",
-      "Interactive adoption application and shelter review request queues",
-      "Secure dashboard portal for shelter admins to verify adopters",
-      "Integrated online pet care advice, blogs, and community forums"
+      "Searchable pet directory filtering by breed, age, size, shelter location, and vaccination status",
+      "Interactive pet application portal allowing users to submit adoption requests and details",
+      "Admin dashboard for animal shelters to manage pet listings, medical profiles, and adoption queues",
+      "Community care section containing shelter guides, volunteer directories, and pet care blogs",
+      "Granular user roles isolating pet seekers from shelter administrators and system moderators",
+      "Secure message channels enabling adopters to directly contact shelter managers"
     ]
   },
 ];
