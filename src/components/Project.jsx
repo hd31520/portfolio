@@ -735,7 +735,7 @@ const ProjectMockup = ({ projectId, theme }) => {
 
     default:
       return (
-        <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-gray-905 text-gray-400 text-xs">
+        <div className="w-full h-full flex items-center justify-center bg-[#070c1e] text-gray-500 text-xs">
           No Mockup Available
         </div>
       );
@@ -746,158 +746,162 @@ const Project = () => {
   const { theme } = useTheme();
 
   return (
-    <div className=" w-full p-4 space-y-12 relative">
-      {/* Dynamic background element based on theme */}
-      {/* <div
-        className={`absolute right-1/4 bottom-0 w-64 h-64 rounded-full blur-3xl ${
-          theme === "dark" ? "bg-black" : "bg-blue-200"
-        }`}
-      ></div> */}
+    <div className="w-full min-h-screen bg-[#050816] text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
 
       {/* Header */}
-      <div className="flex items-center justify-center pt-8">
-        <h1 className={`text-3xl font-bold flex items-center gap-2 text-gray-900  ${theme === "dark" ? "text-white" : "" }`}>
-          <span className={`text-blue-600 ${theme === "dark" ? "text-blue-400" : ""} `}>
-            <FaReact className="inline" />
-          </span>
-          My Projects
+      <div className="text-center mb-16 max-w-xl mx-auto">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold mb-3">
+          My Creations
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Featured Projects
         </h1>
+        <p className="text-gray-400 text-xs sm:text-sm mt-2 leading-relaxed">
+          Explore a curated selection of full-stack MERN & React applications, engineered for production scalability.
+        </p>
       </div>
 
       {/* Projects Grid */}
-      <div className="flex flex-col gap-12">
-        {projectTechStacks.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            whileHover={{ y: -5 }}
-            className={`w-full grid md:grid-cols-2 gap-8 items-center bg-gray-100 ${theme === "dark" ? "bg-gray-800/80 border border-gray-700/50 backdrop-blur-md" : "bg-white border border-gray-200/50"} p-6 rounded-xl shadow-lg transition-all duration-300`}
-          >
-            {/* Project Details and Links (conditionally ordered) */}
-            <div
-              className={`space-y-6 ${
-                index % 2 === 0 ? "order-1 md:order-2" : "order-1 md:order-1"
-              }`}
-            >
-              <h2 className={`text-2xl font-bold text-gray-800 ${theme === "dark" ? "text-white" : ""}  `}>
-                {project.title}
-              </h2>
-              <p className={`text-gray-600 ${theme === "dark" ? "text-gray-300" : "text-gray-600" } text-base leading-relaxed`}>
-                {project.description}
-              </p>
-
-              {/* Key Features List */}
-              {project.features && (
-                <ul className="space-y-2">
-                  {project.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-                      <span className="text-indigo-500 mt-1 flex-shrink-0 text-xs">•</span>
-                      <span className="leading-relaxed">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {/* Technology Stack Pills */}
-              <div className="flex flex-wrap gap-2.5">
-                {techIcons
-                  .filter((icon) => project.tech.includes(icon.name))
-                  .map((icon) => (
-                    <motion.div
-                      key={icon.name}
-                      title={icon.name}
-                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold ${icon.bg} border border-gray-200/10 dark:border-gray-700/20 shadow-sm flex-shrink-0`}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <span className="text-sm flex items-center justify-center">
-                        {icon.icon}
-                      </span>
-                      <span>{icon.name}</span>
-                    </motion.div>
-                  ))}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex gap-4 flex-wrap">
-                <motion.a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 px-5 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors duration-300 shadow-md"
-                >
-                  Live Site <FaArrowRight />
-                </motion.a>
-                <motion.a
-                  href={project.clientGithubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`flex items-center gap-2 px-5 py-3 rounded-full bg-gray-800 hover:bg-gray-900 text-white ${theme === "dark" ? "bg-gray-700 hover:bg-gray-600" : ""}  font-semibold transition-colors duration-300 shadow-md`}
-                >
-                  <FaGithub /> Client
-                </motion.a>
-                <motion.a
-                  href={project.serverGithubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`flex items-center gap-2 px-5 py-3 rounded-full bg-gray-800 hover:bg-gray-900 text-white ${theme === "dark" ? "hover:bg-gray-600 bg-gray-700" : ""}  font-semibold transition-colors duration-300 shadow-md`}
-                >
-                  <FaGithub /> Server
-                </motion.a>
-              </div>
-            </div>
-
-            {/* Live project mockup/image dashboard (replaces iframe blocked by X-Frame-Options) */}
+      <div className="max-w-6xl mx-auto flex flex-col gap-16">
+        {projectTechStacks.map((project, index) => {
+          const isFeatured = index === 0;
+          return (
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              onClick={() => window.open(project.url, "_blank", "noopener noreferrer")}
-              className={`h-96 w-full rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 cursor-pointer relative group ${
-                index % 2 === 0 ? "order-2 md:order-1" : "order-2 md:order-2"
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className={`w-full grid md:grid-cols-2 gap-8 items-center bg-white/5 border border-white/5 p-6 sm:p-8 rounded-[24px] shadow-lg transition-all duration-300 ${
+                isFeatured ? "ring-1 ring-green-500/20 shadow-[0_20px_50px_rgba(34,197,94,0.05)] border-green-500/10" : "hover:border-green-500/15"
               }`}
             >
-              {project.image ? (
-                <div className="w-full h-full relative overflow-hidden bg-gray-50 dark:bg-gray-950">
-                  {/* Browser-like header */}
-                  <div className="absolute top-0 left-0 right-0 z-10 flex items-center gap-2 px-4 py-2.5 bg-gray-100/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 text-[10px] text-gray-500 select-none">
-                    <div className="flex gap-1.5 flex-shrink-0">
-                      <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
-                    </div>
-                    <div className="flex-1 mx-4 px-3 py-0.5 bg-white dark:bg-gray-950 rounded border border-gray-200/60 dark:border-gray-800/60 text-center font-mono overflow-hidden whitespace-nowrap text-ellipsis">
-                      {project.url.replace(/^https?:\/\//, "")}
-                    </div>
+              {/* Project Details */}
+              <div className={`space-y-5 ${index % 2 === 0 ? "order-1 md:order-2" : "order-1 md:order-1"}`}>
+                {isFeatured && (
+                  <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-green-500/10 border border-green-500/25 text-green-400 text-[9px] font-bold uppercase tracking-wider">
+                    ★ Featured Project
                   </div>
-                  {/* Image container with top padding for browser header */}
-                  <div className="w-full h-full pt-8.5 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-in-out group-hover:scale-105"
-                    />
-                  </div>
-                  {/* Redirect Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/30 dark:bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="bg-white/95 dark:bg-gray-900/95 text-gray-850 dark:text-gray-100 px-4.5 py-2 rounded-full text-xs font-bold shadow-md flex items-center gap-2 transition-transform duration-300 translate-y-2 group-hover:translate-y-0">
-                      Open Live Site <FaArrowRight className="h-3 w-3" />
-                    </span>
-                  </div>
+                )}
+                
+                <h2 className="text-2xl font-bold text-white tracking-tight">
+                  {project.title}
+                </h2>
+                
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Features */}
+                {project.features && (
+                  <ul className="space-y-1.5">
+                    {project.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs text-gray-400">
+                        <span className="text-green-500 mt-1 flex-shrink-0">•</span>
+                        <span className="leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {/* Tech Pills */}
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {techIcons
+                    .filter((icon) => project.tech.includes(icon.name))
+                    .map((icon) => (
+                      <div
+                        key={icon.name}
+                        title={icon.name}
+                        className="flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-semibold bg-white/5 border border-white/5 text-gray-300 hover:text-white transition-colors"
+                      >
+                        <span className="flex items-center justify-center">{icon.icon}</span>
+                        <span>{icon.name}</span>
+                      </div>
+                    ))}
                 </div>
-              ) : (
-                <ProjectMockup projectId={project.id} theme={theme} />
-              )}
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap gap-3 pt-3">
+                  <motion.a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center gap-1.5 px-4.5 py-2.5 rounded-full bg-green-500 hover:bg-green-600 text-[#050816] text-xs font-bold transition-all shadow-md shadow-green-500/5"
+                  >
+                    Live Demo <FaArrowRight className="h-3 w-3" />
+                  </motion.a>
+                  <motion.a
+                    href={project.clientGithubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 text-xs font-semibold transition-all"
+                  >
+                    <FaGithub className="h-3.5 w-3.5" /> Client
+                  </motion.a>
+                  {project.serverGithubUrl && project.serverGithubUrl !== project.clientGithubUrl && (
+                    <motion.a
+                      href={project.serverGithubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 text-xs font-semibold transition-all"
+                    >
+                      <FaGithub className="h-3.5 w-3.5" /> Server
+                    </motion.a>
+                  )}
+                </div>
+              </div>
+
+              {/* Mockup Frame / Screenshots */}
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                onClick={() => window.open(project.url, "_blank", "noopener noreferrer")}
+                className={`h-[280px] sm:h-[340px] w-full rounded-2xl overflow-hidden shadow-lg border border-white/5 cursor-pointer relative group ${
+                  index % 2 === 0 ? "order-2 md:order-1" : "order-2 md:order-2"
+                }`}
+              >
+                {project.image ? (
+                  <div className="w-full h-full relative overflow-hidden bg-[#070c1e]">
+                    {/* Browser-like header */}
+                    <div className="absolute top-0 left-0 right-0 z-10 flex items-center gap-2 px-4 py-2 bg-[#0b1129]/90 backdrop-blur-sm border-b border-white/5 text-[9px] text-gray-500 select-none">
+                      <div className="flex gap-1.5 flex-shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-red-500/70"></div>
+                        <div className="w-2 h-2 rounded-full bg-yellow-500/70"></div>
+                        <div className="w-2 h-2 rounded-full bg-green-500/70"></div>
+                      </div>
+                      <div className="flex-1 mx-4 px-3 py-0.5 bg-[#050816] rounded border border-white/5 text-center font-mono overflow-hidden whitespace-nowrap text-ellipsis text-gray-400">
+                        {project.url.replace(/^https?:\/\//, "")}
+                      </div>
+                    </div>
+                    {/* Image container */}
+                    <div className="w-full h-full pt-7 overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top transition-transform duration-700 ease-in-out group-hover:scale-103"
+                      />
+                    </div>
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="bg-white text-[#050816] px-4 py-2 rounded-full text-[10px] font-bold shadow-md flex items-center gap-1.5 transition-transform duration-300 translate-y-2 group-hover:translate-y-0">
+                        Open Live Site <FaArrowRight className="h-3 w-3" />
+                      </span>
+                    </div>
+                  </div>
+                ) : (
+                  <ProjectMockup projectId={project.id} theme={theme} />
+                )}
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

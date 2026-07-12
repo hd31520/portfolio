@@ -2,6 +2,7 @@ import Banner from "@/components/Banner";
 import TechnologyStack from "@/components/TechnologyStack";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
@@ -19,6 +20,8 @@ export default function Home() {
       <TechnologyStack id="technologies" />
       
       <ServicesSection id="services" />
+
+      <ExperienceSection id="experience" />
       
       <ContactSection id="contact" />
     </div>

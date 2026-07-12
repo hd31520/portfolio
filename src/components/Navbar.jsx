@@ -1,140 +1,143 @@
-"use client"; // This directive is necessary for React Hooks like useState
+"use client";
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useTheme } from '../context/ThemeContext'; // Import useTheme hook
-
+import { useTheme } from '../context/ThemeContext';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Sun, Moon, Menu, X, FileText } from 'lucide-react';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to manage mobile menu visibility
-  const { theme, toggleTheme } = useTheme(); // Get theme and toggle function from context
+  const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
-  // Determine the stroke color for the SVG icons based on the current theme
-  const iconStrokeColor = theme === 'light' ? 'var(--color-gray-700)' : 'var(--color-gray-300)';
-
-  // Function to toggle the mobile menu's open/close state
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const navLinks = [
+    { href: "/", text: "Home" },
+    { href: "/#about", text: "About" },
+    { href: "/#technologies", text: "Skills" },
+    { href: "/#experience", text: "Experience" },
+    { href: "/projects", text: "Projects" },
+    { href: "/#contact", text: "Contact" },
+  ];
+
   return (
-    // Navbar container: fixed position, top, left, right, high z-index,
-    // and background color now matches --banner-bg-color
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--banner-bg-color)] shadow-lg rounded-b-lg transition-colors duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050816]/70 dark:bg-[#050816]/75 backdrop-blur-md border-b border-white/5 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-16 items-center">
           {/* Logo/Brand Section */}
           <div className="flex-shrink-0 flex items-center">
-            {/* Logo text with dynamic color based on theme */}
-            <Link href="/" className="text-[var(--color-indigo-600)] flex gap-10  text-2xl font-bold rounded-md p-2 hover:bg-indigo-50 transition-colors duration-300">
-            <img className='h-10 w-10 rounded-full'  src="/hridoy2.png" alt="" />
-                Md. Hridoy Sheikh
+            <Link href="/" className="flex items-center gap-3 text-white text-lg font-bold hover:opacity-90 transition-opacity">
+              <img className="h-9 w-9 rounded-full ring-2 ring-green-500/30" src="/hridoy2.png" alt="Hridoy Logo" />
+              <span className="tracking-wide">Md. Hridoy Sheikh</span>
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <NavLink href="/" text="Home" />
-            <NavLink href="/#about" text="About" />
-            <NavLink href="/#technologies" text="Technologies" />
-            <NavLink href="/#services" text="Services" />
-            <NavLink href="/projects" text="Projects" />
-            <NavLink href="/#contact" text="Contact" />
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center space-x-1.5">
+            {navLinks.map((link) => (
+              <NavLink key={link.text} href={link.href} text={link.text} />
+            ))}
+
+            {/* Separator */}
+            <div className="w-[1px] h-4 bg-white/10 mx-2"></div>
 
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full transition-colors duration-300 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
+              className="p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? (
-                // Sun icon for light mode (from Heroicons)
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke={iconStrokeColor}>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h1M3 12h1m15.325-7.757l-.707-.707M5.382 5.382l-.707-.707m12.728 0l-.707.707M6.09 17.91l-.707.707M18 12a6 6 0 11-12 0 6 6 0 0112 0z" />
-                </svg>
+                <Sun className="h-4.5 w-4.5" />
               ) : (
-                // Moon icon for dark mode (from Heroicons)
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke={iconStrokeColor}>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
+                <Moon className="h-4.5 w-4.5" />
               )}
             </button>
+
+            {/* Resume Button */}
+            <motion.a
+              href="/hridoy_resume.pdf"
+              download
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-green-500 hover:bg-green-600 text-[#050816] text-xs font-bold shadow-md shadow-green-500/10 transition-colors ml-2"
+            >
+              <FileText className="h-3.5 w-3.5" />
+              Resume
+            </motion.a>
           </div>
 
-          {/* Mobile Menu Button (Hamburger/X icon) */}
-          <div className="-mr-2 flex items-center md:hidden">
+          {/* Mobile Menu Button */}
+          <div className="flex items-center md:hidden gap-3">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? <Sun className="h-4.5 w-4.5" /> : <Moon className="h-4.5 w-4.5" />}
+            </button>
             <button
               onClick={toggleMenu}
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-[var(--color-gray-300)] hover:text-white hover:bg-indigo-600 dark:hover:bg-[var(--color-indigo-700)] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition duration-300 ease-in-out"
+              className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
               aria-controls="mobile-menu"
-              aria-expanded="false"
+              aria-expanded={isOpen}
             >
               <span className="sr-only">Open main menu</span>
-              {!isOpen ? (
-                <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              ) : (
-                <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              )}
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu, show/hide based on menu state */}
-      {isOpen && (
-        // Mobile menu background also matches --banner-bg-color
-        <div className="md:hidden bg-[var(--banner-bg-color)]" id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <MobileNavLink href="/" text="Home" />
-            <MobileNavLink href="/#about" text="About" />
-            <MobileNavLink href="/#technologies" text="Technologies" />
-            <MobileNavLink href="/#services" text="Services" />
-            <MobileNavLink href="/projects" text="Projects" />
-            <MobileNavLink href="/#contact" text="Contact" />
-            {/* Theme Toggle for Mobile */}
-            <button
-              onClick={toggleTheme}
-              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-all duration-300 text-gray-700 dark:text-gray-200 hover:text-white hover:bg-indigo-600 dark:hover:bg-indigo-600"
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-[#050816]/95 border-b border-white/5 overflow-hidden"
+            id="mobile-menu"
+          >
+            <div className="px-3 pt-2 pb-6 space-y-1.5">
+              {navLinks.map((link) => (
+                <MobileNavLink key={link.text} href={link.href} text={link.text} onClick={() => setIsOpen(false)} />
+              ))}
+              
+              <div className="pt-4 px-3">
+                <a
+                  href="/hridoy_resume.pdf"
+                  download
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full bg-green-500 hover:bg-green-600 text-[#050816] text-sm font-bold shadow-md transition-colors"
+                >
+                  <FileText className="h-4 w-4" />
+                  Download Resume
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
 
 // Helper component for desktop navigation links
 const NavLink = ({ href, text }) => (
-  <Link href={href} className="text-gray-700 dark:text-gray-200 hover:bg-indigo-600 dark:hover:bg-indigo-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ease-in-out">
-      {text}
+  <Link href={href} className="text-gray-400 hover:text-white px-3.5 py-1.5 rounded-full text-xs font-medium hover:bg-white/5 transition-all duration-200">
+    {text}
   </Link>
 );
 
 // Helper component for mobile navigation links
-const MobileNavLink = ({ href, text }) => (
-  <Link href={href} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-white hover:bg-indigo-600 dark:hover:bg-indigo-600 transition-all duration-300 ease-in-out">
-      {text}
+const MobileNavLink = ({ href, text, onClick }) => (
+  <Link href={href} onClick={onClick} className="block px-4 py-2.5 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200">
+    {text}
   </Link>
 );
 

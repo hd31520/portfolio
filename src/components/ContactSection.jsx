@@ -1,7 +1,9 @@
 "use client";
+
 import React, { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Facebook } from "lucide-react";
+import { motion } from "framer-motion";
 
 const ContactSection = ({ id }) => {
   const { theme } = useTheme();
@@ -30,57 +32,50 @@ const ContactSection = ({ id }) => {
   };
 
   return (
-    <section id={id || "contact"} className={`w-full py-16 transition-colors duration-300 ${
-      theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
-    }`}>
-      <div className="max-w-6xl mx-auto px-4">
+    <section 
+      id={id || "contact"} 
+      className="w-full py-24 bg-[#050816] text-white relative overflow-hidden"
+    >
+      {/* Background vector glow */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-green-500/5 blur-[130px] pointer-events-none"></div>
+
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${
-            theme === 'dark' ? 'text-white' : 'text-gray-900'
-          }`}>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold mb-3">
             Get In Touch
+          </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+            Let's Collaborate
           </h2>
-          <p className={`text-lg max-w-2xl mx-auto ${
-            theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
-          }`}>
-            Have a project in mind or want to discuss opportunities? Feel free to reach out!
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mt-2 leading-relaxed">
+            Have a project in mind or want to discuss full-stack opportunities? Send a message and let's start talking.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <div className={`p-6 rounded-xl transition-colors duration-300 ${
-              theme === 'dark' ? 'bg-gray-700' : 'bg-white'
-            } shadow-lg`}>
-              <h3 className={`text-xl font-semibold mb-6 ${
-                theme === 'dark' ? 'text-white' : 'text-gray-800'
-              }`}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* Contact Info & Socials */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            
+            {/* Info Card */}
+            <div className="p-6 rounded-[24px] bg-white/5 border border-white/5 shadow-lg flex-1">
+              <h3 className="text-lg font-bold text-white mb-6">
                 Contact Information
               </h3>
               
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {/* Email */}
                 <div className="flex items-start gap-4">
-                  <div className={`p-2 rounded-full ${
-                    theme === 'dark' ? 'bg-indigo-600' : 'bg-indigo-100'
-                  }`}>
-                    <Mail className={`h-5 w-5 ${
-                      theme === 'dark' ? 'text-white' : 'text-indigo-600'
-                    }`} />
+                  <div className="p-2.5 rounded-2xl bg-white/5 border border-white/5 text-green-400">
+                    <Mail className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className={`text-sm font-medium ${
-                      theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
-                    }`}>
+                    <p className="text-xs text-gray-500 font-semibold tracking-wider uppercase">
                       Email
                     </p>
                     <a 
                       href="mailto:mdhridoy3240@gmail.com" 
-                      className={`hover:text-indigo-500 transition-colors ${
-                        theme === 'dark' ? 'text-white' : 'text-gray-900'
-                      }`}
+                      className="text-sm text-gray-300 hover:text-green-400 transition-colors"
                     >
                       mdhridoy3240@gmail.com
                     </a>
@@ -89,24 +84,16 @@ const ContactSection = ({ id }) => {
 
                 {/* Phone */}
                 <div className="flex items-start gap-4">
-                  <div className={`p-2 rounded-full ${
-                    theme === 'dark' ? 'bg-indigo-600' : 'bg-indigo-100'
-                  }`}>
-                    <Phone className={`h-5 w-5 ${
-                      theme === 'dark' ? 'text-white' : 'text-indigo-600'
-                    }`} />
+                  <div className="p-2.5 rounded-2xl bg-white/5 border border-white/5 text-green-400">
+                    <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className={`text-sm font-medium ${
-                      theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
-                    }`}>
+                    <p className="text-xs text-gray-500 font-semibold tracking-wider uppercase">
                       Phone
                     </p>
                     <a 
                       href="tel:+88017411654673" 
-                      className={`hover:text-indigo-500 transition-colors ${
-                        theme === 'dark' ? 'text-white' : 'text-gray-900'
-                      }`}
+                      className="text-sm text-gray-300 hover:text-green-400 transition-colors"
                     >
                       +880 1741-1654673
                     </a>
@@ -115,97 +102,55 @@ const ContactSection = ({ id }) => {
 
                 {/* Location */}
                 <div className="flex items-start gap-4">
-                  <div className={`p-2 rounded-full ${
-                    theme === 'dark' ? 'bg-indigo-600' : 'bg-indigo-100'
-                  }`}>
-                    <MapPin className={`h-5 w-5 ${
-                      theme === 'dark' ? 'text-white' : 'text-indigo-600'
-                    }`} />
+                  <div className="p-2.5 rounded-2xl bg-white/5 border border-white/5 text-green-400">
+                    <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className={`text-sm font-medium ${
-                      theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
-                    }`}>
+                    <p className="text-xs text-gray-500 font-semibold tracking-wider uppercase">
                       Location
                     </p>
-                    <p className={`${
-                      theme === 'dark' ? 'text-white' : 'text-gray-900'
-                    }`}>
-                      Kanaipur, Faridpur, Dhaka, Bangladesh
+                    <p className="text-sm text-gray-300">
+                      Faridpur, Dhaka, Bangladesh
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className={`p-6 rounded-xl transition-colors duration-300 ${
-              theme === 'dark' ? 'bg-gray-700' : 'bg-white'
-            } shadow-lg`}>
-              <h3 className={`text-xl font-semibold mb-6 ${
-                theme === 'dark' ? 'text-white' : 'text-gray-800'
-              }`}>
-                Follow Me
+            {/* Socials Card */}
+            <div className="p-6 rounded-[24px] bg-white/5 border border-white/5 shadow-lg">
+              <h3 className="text-lg font-bold text-white mb-4">
+                Connect With Me
               </h3>
-              <div className="flex gap-4">
-                
-                <a 
-                  href="https://github.com/hd31520" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-3 rounded-full transition-colors duration-300 ${
-                    theme === 'dark' 
-                      ? 'bg-gray-600 hover:bg-gray-500 text-white' 
-                      : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
-                  }`}
-                  aria-label="GitHub"
-                >
-                  <Github className="h-5 w-5" />
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/mdhridoysheikh/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-3 rounded-full transition-colors duration-300 ${
-                    theme === 'dark' 
-                      ? 'bg-gray-600 hover:bg-gray-500 text-white' 
-                      : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
-                  }`}
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a 
-                  href="https://www.facebook.com/Hridoy3240/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-3 rounded-full transition-colors duration-300 ${
-                    theme === 'dark' 
-                      ? 'bg-gray-600 hover:bg-gray-500 text-white' 
-                      : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
-                  }`}
-                  aria-label="Twitter"
-                >
-                  <Facebook className="h-5 w-5" />
-                </a>
+              <div className="flex gap-3">
+                {[
+                  { icon: <Github className="h-4.5 w-4.5" />, url: "https://github.com/hd31520", label: "GitHub" },
+                  { icon: <Linkedin className="h-4.5 w-4.5" />, url: "https://www.linkedin.com/in/mdhridoysheikh/", label: "LinkedIn" },
+                  { icon: <Facebook className="h-4.5 w-4.5" />, url: "https://www.facebook.com/Hridoy3240/", label: "Facebook" }
+                ].map((social, index) => (
+                  <a 
+                    key={index}
+                    href={social.url} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-2xl bg-white/5 border border-white/5 text-gray-400 hover:text-green-500 hover:bg-white/10 hover:border-green-500/20 transition-all duration-200"
+                    aria-label={social.label}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className={`p-6 rounded-xl transition-colors duration-300 ${
-            theme === 'dark' ? 'bg-gray-700' : 'bg-white'
-          } shadow-lg`}>
-            <h3 className={`text-xl font-semibold mb-6 ${
-              theme === 'dark' ? 'text-white' : 'text-gray-800'
-            }`}>
+          <div className="lg:col-span-7 p-8 rounded-[24px] bg-white/5 border border-white/5 shadow-lg">
+            <h3 className="text-lg font-bold text-white mb-6">
               Send Me a Message
             </h3>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="name" className={`block text-sm font-medium mb-1 ${
-                  theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <label htmlFor="name" className="block text-xs font-semibold text-gray-400 mb-1.5 tracking-wider uppercase">
                   Name
                 </label>
                 <input
@@ -214,19 +159,13 @@ const ContactSection = ({ id }) => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 rounded-lg border transition-colors duration-300 ${
-                    theme === 'dark' 
-                      ? 'bg-gray-800 border-gray-600 focus:border-indigo-500 focus:ring-indigo-500 text-white' 
-                      : 'bg-white border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-gray-900'
-                  }`}
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-green-500/30 focus:outline-none transition-colors text-sm"
                   required
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className={`block text-sm font-medium mb-1 ${
-                  theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <label htmlFor="email" className="block text-xs font-semibold text-gray-400 mb-1.5 tracking-wider uppercase">
                   Email
                 </label>
                 <input
@@ -235,19 +174,13 @@ const ContactSection = ({ id }) => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 rounded-lg border transition-colors duration-300 ${
-                    theme === 'dark' 
-                      ? 'bg-gray-800 border-gray-600 focus:border-indigo-500 focus:ring-indigo-500 text-white' 
-                      : 'bg-white border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-gray-900'
-                  }`}
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-green-500/30 focus:outline-none transition-colors text-sm"
                   required
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className={`block text-sm font-medium mb-1 ${
-                  theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <label htmlFor="message" className="block text-xs font-semibold text-gray-400 mb-1.5 tracking-wider uppercase">
                   Message
                 </label>
                 <textarea
@@ -256,26 +189,20 @@ const ContactSection = ({ id }) => {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 rounded-lg border transition-colors duration-300 ${
-                    theme === 'dark' 
-                      ? 'bg-gray-800 border-gray-600 focus:border-indigo-500 focus:ring-indigo-500 text-white' 
-                      : 'bg-white border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-gray-900'
-                  }`}
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-green-500/30 focus:outline-none transition-colors text-sm resize-none"
                   required
                 ></textarea>
               </div>
               
-              <button
+              <motion.button
                 type="submit"
-                className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors duration-300 ${
-                  theme === 'dark' 
-                    ? 'bg-indigo-600 hover:bg-indigo-700 text-white' 
-                    : 'bg-indigo-600 hover:bg-indigo-700 text-white'
-                }`}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-green-500 hover:bg-green-600 text-[#050816] text-sm font-bold shadow-lg shadow-green-500/10 transition-colors mt-2"
               >
-                <Send className="h-5 w-5" />
+                <Send className="h-4 w-4" />
                 Send Message
-              </button>
+              </motion.button>
             </form>
           </div>
         </div>

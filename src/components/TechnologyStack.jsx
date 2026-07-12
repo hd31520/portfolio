@@ -1,226 +1,117 @@
 "use client";
 
-import { useRef, useLayoutEffect } from "react";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaReact,
-  FaCcStripe,
-  FaGithub,
-} from "react-icons/fa";
-import {
-  SiVite,
-  SiMongodb,
-  SiShadcnui,
-  SiNextdotjs,
-  SiExpress,
-  SiReactquery,
-  SiDaisyui,
-} from "react-icons/si";
+import { FaReact, FaNodeJs } from "react-icons/fa";
+import { SiMongodb, SiExpress, SiNextdotjs, SiJavascript } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { IoLogoFirebase, IoLogoVercel } from "react-icons/io5";
+import { IoLogoFirebase } from "react-icons/io5";
 
 const TechnologyStack = ({ id }) => {
   const { theme } = useTheme();
-  const scrollerRef = useRef(null);
-  const controls = useAnimationControls();
-  const doubled = [];
-  const animationProps = useRef({ x: 0, transition: {} });
 
-  const technologies = [
-    // Brand color icons (same in both modes)
+  const skills = [
     {
-      name: "HTML5",
-      icon: <FaHtml5 className="h-8 w-8 text-orange-500" />,
-      description: "Semantic markup for web content structure",
+      name: "React.js",
+      icon: <FaReact className="h-8 w-8 text-[#61DAFB]" />,
+      description: "Component-driven UI library for building rich interactive web frontends.",
+      glowColor: "rgba(97, 218, 251, 0.15)",
     },
     {
-      name: "CSS3",
-      icon: <FaCss3Alt className="h-8 w-8 text-blue-500" />,
-      description: "Styling and layout for modern web apps",
-    },
-    {
-      name: "React",
-      icon: <FaReact className="h-8 w-8 text-cyan-400" />,
-      description: "Component-based UI library",
-    },
-    {
-      name: "Tailwind CSS",
-      icon: <RiTailwindCssFill className="h-8 w-8 text-sky-400" />,
-      description: "Utility-first CSS framework",
-    },
-    {
-      name: "DaisyUI",
-      icon: <SiDaisyui className="h-8 w-8 text-[#5A21D6]" />,
-      description: "Tailwind CSS component library",
-    },
-    {
-      name: "Vite",
-      icon: <SiVite className="h-8 w-8 text-[#646CFF]" />,
-      description: "Next generation frontend tooling",
-    },
-    {
-      name: "Firebase",
-      icon: <IoLogoFirebase className="h-8 w-8 text-amber-400" />,
-      description: "Backend-as-a-Service platform",
-    },
-    {
-      name: "MongoDB",
-      icon: <SiMongodb className="h-8 w-8 text-green-500" />,
-      description: "NoSQL document database",
-    },
-    {
-      name: "TanStack Query",
-      icon: <SiReactquery className="h-8 w-8 text-rose-500" />,
-      description: "Data synchronization for React",
-    },
-    {
-      name: "Stripe",
-      icon: <FaCcStripe className="h-8 w-8 text-indigo-500" />,
-      description: "Online payment processing",
-    },
-
-    // Adaptive color icons (change with theme)
-    {
-      name: "Next.js",
-      icon: (
-        <SiNextdotjs
-          className={`h-8 w-8 ${
-            theme === "dark" ? "text-gray-300" : "text-gray-600"
-          }`}
-        />
-      ),
-      description: "React framework for production",
+      name: "Node.js",
+      icon: <FaNodeJs className="h-8 w-8 text-[#339933]" />,
+      description: "JavaScript runtime engine for executing high-performance server-side logic.",
+      glowColor: "rgba(51, 153, 51, 0.15)",
     },
     {
       name: "Express.js",
-      icon: (
-        <SiExpress
-          className={`h-8 w-8 ${
-            theme === "dark" ? "text-gray-300" : "text-gray-600"
-          }`}
-        />
-      ),
-      description: "Node.js web application framework",
+      icon: <SiExpress className="h-8 w-8 text-gray-300" />,
+      description: "Minimalist web framework for Node.js to create scalable RESTful APIs.",
+      glowColor: "rgba(255, 255, 255, 0.1)",
     },
     {
-      name: "ShadCN UI",
-      icon: (
-        <SiShadcnui
-          className={`h-8 w-8 ${
-            theme === "dark" ? "text-gray-300" : "text-gray-600"
-          }`}
-        />
-      ),
-      description: "Beautifully designed components",
+      name: "MongoDB",
+      icon: <SiMongodb className="h-8 w-8 text-[#47A248]" />,
+      description: "Flexible NoSQL database for rapid document-based data management.",
+      glowColor: "rgba(71, 162, 72, 0.15)",
     },
     {
-      name: "GitHub",
-      icon: (
-        <FaGithub
-          className={`h-8 w-8 ${
-            theme === "dark" ? "text-gray-300" : "text-gray-600"
-          }`}
-        />
-      ),
-      description: "Version control and collaboration",
+      name: "Firebase",
+      icon: <IoLogoFirebase className="h-8 w-8 text-[#FFCA28]" />,
+      description: "Serverless backend platform for instant user auth and real-time syncing.",
+      glowColor: "rgba(255, 202, 40, 0.15)",
     },
     {
-      name: "Vercel",
-      icon: (
-        <IoLogoVercel
-          className={`h-8 w-8 ${
-            theme === "dark" ? "text-gray-300" : "text-gray-600"
-          }`}
-        />
-      ),
-      description: "Cloud platform for frontend",
+      name: "Tailwind CSS",
+      icon: <RiTailwindCssFill className="h-8 w-8 text-[#38BDF8]" />,
+      description: "Utility-first CSS framework for crafting beautiful responsive styling layouts.",
+      glowColor: "rgba(56, 189, 248, 0.15)",
+    },
+    {
+      name: "JavaScript",
+      icon: <SiJavascript className="h-8 w-8 text-[#F7DF1E]" />,
+      description: "The core language powering client-side interaction and server-side processing.",
+      glowColor: "rgba(247, 223, 30, 0.15)",
+    },
+    {
+      name: "Next.js",
+      icon: <SiNextdotjs className="h-8 w-8 text-white" />,
+      description: "React framework for production-ready SSR, static generation, and page routing.",
+      glowColor: "rgba(255, 255, 255, 0.15)",
     },
   ];
-
-  doubled.push(...technologies, ...technologies);
-
-  useLayoutEffect(() => {
-    if (scrollerRef.current) {
-      const scrollWidth = scrollerRef.current.scrollWidth / 2;
-      animationProps.current = {
-        x: -scrollWidth,
-        transition: {
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 25,
-            ease: "linear",
-          },
-        },
-      };
-      controls.start(animationProps.current);
-    }
-  }, [controls]);
-
-  const onHoverStart = () => controls.stop();
-  const onHoverEnd = () => controls.start(animationProps.current);
 
   return (
     <section
       id={id}
-      className={`py-12 px-4 sm:px-6 lg:px-8 overflow-hidden ${
-        theme === "dark" ? "bg-gray-900" : "bg-gray-100"
-      }`}
+      className="py-24 px-4 sm:px-6 lg:px-8 bg-[#050816] text-white relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2
-            className={`text-3xl font-bold ${
-              theme === "dark" ? "text-white" : "text-gray-900"
-            }`}
-          >
+      {/* Background vector glow */}
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Title */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold mb-3">
+            Core Expertise
+          </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
             My Technology Stack
           </h2>
-          <p
-            className={`text-lg max-w-2xl mx-auto ${
-              theme === "dark" ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            Tools and technologies I use to build amazing projects
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mt-2 leading-relaxed">
+            The programming languages, frameworks, and backend solutions I leverage to engineer premium applications.
           </p>
         </div>
 
-        <div className="relative overflow-hidden">
-          <motion.div
-            ref={scrollerRef}
-            className="flex gap-6 w-max py-2"
-            animate={controls}
-            onHoverStart={onHoverStart}
-            onHoverEnd={onHoverEnd}
-          >
-            {doubled.map((tech, index) => (
-              <div
-                key={`${tech.name}-${index}`}
-                className={`flex-shrink-0 w-48 flex flex-col items-center p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 ${
-                  theme === "dark" ? "bg-gray-800" : "bg-white"
-                }`}
-              >
-                <div className="mb-4 p-3 rounded-full">{tech.icon}</div>
-                <h3
-                  className={`text-lg font-semibold mb-1 text-center ${
-                    theme === "dark" ? "text-white" : "text-gray-900"
-                  }`}
-                >
-                  {tech.name}
+        {/* Grid of Skill Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              whileHover={{ 
+                y: -5,
+                boxShadow: `0 10px 30px ${skill.glowColor}`,
+                borderColor: "rgba(34, 197, 94, 0.3)"
+              }}
+              className="p-6 rounded-[22px] bg-white/5 border border-white/5 shadow-lg flex flex-col items-start gap-4 transition-all duration-300 group"
+            >
+              <div className="p-3.5 rounded-2xl bg-white/5 group-hover:scale-105 transition-transform duration-300">
+                {skill.icon}
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white group-hover:text-green-400 transition-colors duration-200">
+                  {skill.name}
                 </h3>
-                <p
-                  className={`text-sm text-center ${
-                    theme === "dark" ? "text-gray-300" : "text-gray-600"
-                  }`}
-                >
-                  {tech.description}
+                <p className="text-gray-400 text-xs mt-1.5 leading-relaxed">
+                  {skill.description}
                 </p>
               </div>
-            ))}
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

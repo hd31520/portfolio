@@ -1,167 +1,82 @@
 "use client";
+
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
-import { Mail } from "lucide-react";
-import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { Mail, Github, Linkedin, Facebook } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
   const { theme } = useTheme();
 
   const socialLinks = [
-    { icon: <FaGithub className="h-5 w-5" />, url: "https://github.com/hd31520", label: "GitHub" },
-    { icon: <FaLinkedin className="h-5 w-5" />, url: "https://www.linkedin.com/in/md-hridoy-sheikh-b16b01298/", label: "LinkedIn" },
-    { icon: <FaFacebook className="h-5 w-5" />, url: "https://www.facebook.com/Hridoy3240/", label: "Facebook" }
+    { icon: <Github className="h-4 w-4" />, url: "https://github.com/hd31520", label: "GitHub" },
+    { icon: <Linkedin className="h-4 w-4" />, url: "https://www.linkedin.com/in/md-hridoy-sheikh-b16b01298/", label: "LinkedIn" },
+    { icon: <Facebook className="h-4 w-4" />, url: "https://www.facebook.com/Hridoy3240/", label: "Facebook" }
+  ];
+
+  const quickLinks = [
+    { href: "/", text: "Home" },
+    { href: "/#about", text: "About" },
+    { href: "/#technologies", text: "Skills" },
+    { href: "/#experience", text: "Experience" },
+    { href: "/projects", text: "Projects" },
+    { href: "/#contact", text: "Contact" }
   ];
 
   return (
-    <footer className={`w-full border-t transition-colors duration-300 ${
-      theme === 'dark' 
-        ? 'bg-gray-900 border-gray-800 text-gray-300' 
-        : 'bg-white border-gray-200 text-gray-700'
-    }`}>
+    <footer className="w-full bg-[#050816] border-t border-white/5 text-gray-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          
-          {/* Brand Column */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <img 
-                className="h-10 w-10 rounded-full border-2 border-indigo-500" 
-                src="https://i.ibb.co/BVgP719x/1753965482626.jpg" 
-                alt="Md. Hridoy Sheikh" 
-              />
-              <span className={`text-xl font-bold ${
-                theme === 'dark' ? 'text-white' : 'text-gray-900'
-              }`}>
-                Md. Hridoy
-              </span>
-            </div>
-            <p className="text-sm">
-              Web Developer & Designer creating modern, responsive websites and applications.
-            </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <SocialIcon 
-                  key={index}
-                  href={social.url} 
-                  icon={social.icon} 
-                  label={social.label} 
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className={`text-lg font-semibold ${
-              theme === 'dark' ? 'text-white' : 'text-gray-900'
-            }`}>
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              <FooterLink href="/" text="Home" />
-              <FooterLink href="/about" text="About" />
-              <FooterLink href="/technologies" text="Technologies" />
-              <FooterLink href="/services" text="Services" />
-              <FooterLink href="/projects" text="Projects" />
-              <FooterLink href="/contact" text="Contact" />
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div className="space-y-4">
-            <h3 className={`text-lg font-semibold ${
-              theme === 'dark' ? 'text-white' : 'text-gray-900'
-            }`}>
-              Services
-            </h3>
-            <ul className="space-y-2">
-              <FooterLink href="/services" text="Web Development" />
-              <FooterLink href="/services" text="UI/UX Design" />
-              <FooterLink href="/services" text="Mobile Optimization" />
-              <FooterLink href="/services" text="Backend Development" />
-              <FooterLink href="/services" text="Performance Tuning" />
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="space-y-4">
-            <h3 className={`text-lg font-semibold ${
-              theme === 'dark' ? 'text-white' : 'text-gray-900'
-            }`}>
-              Get In Touch
-            </h3>
-            <div className="flex items-start space-x-3">
-              <Mail className="h-5 w-5 mt-1 flex-shrink-0" />
-              <span>mdhridoy3240@gmail.com</span>
-            </div>
-            <p className="text-sm">
-              Interested in working together? Let's connect and discuss your project.
-            </p>
-            <Link 
-              href="/contact" 
-              className={`inline-block px-4 py-2 rounded-md font-medium ${
-                theme === 'dark' 
-                  ? 'bg-indigo-600 hover:bg-indigo-700 text-white' 
-                  : 'bg-indigo-100 hover:bg-indigo-200 text-indigo-700'
-              } transition-colors duration-300`}
-            >
-              Contact Me
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-white/5 pb-8">
+          {/* Logo & Tagline */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
+            <Link href="/" className="flex items-center gap-2 text-white text-lg font-bold">
+              <img className="h-7 w-7 rounded-full" src="/hridoy2.png" alt="Hridoy Logo" />
+              <span>Md. Hridoy Sheikh</span>
             </Link>
+            <p className="text-xs text-gray-500 max-w-sm">
+              Crafting premium full-stack web applications with modern design systems and secure logic.
+            </p>
+          </div>
+
+          {/* Quick Links Menu */}
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {quickLinks.map((link) => (
+              <Link 
+                key={link.text}
+                href={link.href} 
+                className="text-xs hover:text-green-500 transition-colors duration-200"
+              >
+                {link.text}
+              </Link>
+            ))}
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex gap-3">
+            {socialLinks.map((social, index) => (
+              <a 
+                key={index}
+                href={social.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/5 text-gray-400 hover:text-green-500 hover:bg-white/10 transition-all duration-200"
+                aria-label={social.label}
+              >
+                {social.icon}
+              </a>
+            ))}
           </div>
         </div>
 
         {/* Copyright */}
-        <div className={`mt-12 pt-8 border-t text-center text-sm ${
-          theme === 'dark' ? 'border-gray-800' : 'border-gray-200'
-        }`}>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8 text-[11px] text-gray-500">
           <p>© {new Date().getFullYear()} Md. Hridoy Sheikh. All rights reserved.</p>
-          <p className="mt-1">
-            Built with Next.js, Tailwind CSS, and ❤️
+          <p className="flex items-center gap-1">
+            Built with Next.js, Tailwind CSS, and <span className="text-green-500">❤️</span>
           </p>
         </div>
       </div>
     </footer>
-  );
-};
-
-// Reusable Footer Link Component
-const FooterLink = ({ href, text }) => {
-  const { theme } = useTheme();
-  
-  return (
-    <li>
-      <Link 
-        href={href} 
-        className={`hover:text-indigo-500 transition-colors duration-300 ${
-          theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-        }`}
-      >
-        {text}
-      </Link>
-    </li>
-  );
-};
-
-// Reusable Social Icon Component
-const SocialIcon = ({ href, icon, label }) => {
-  const { theme } = useTheme();
-  
-  return (
-    <a 
-      href={href} 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className={`p-2 rounded-full transition-colors duration-300 ${
-        theme === 'dark' 
-          ? 'hover:bg-gray-700 text-gray-300' 
-          : 'hover:bg-gray-100 text-gray-700'
-      }`}
-      aria-label={label}
-    >
-      {icon}
-    </a>
   );
 };
 
