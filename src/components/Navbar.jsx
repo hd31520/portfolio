@@ -59,7 +59,7 @@ const Navbar = () => {
 
             {/* Resume Button */}
             <motion.a
-              href="/hridoy_resume.pdf"
+              href="/resume.pdf"
               download
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -111,7 +111,7 @@ const Navbar = () => {
               
               <div className="pt-4 px-3">
                 <a
-                  href="/hridoy_resume.pdf"
+                  href="/resume.pdf"
                   download
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full bg-green-500 hover:bg-green-600 text-white text-sm font-bold shadow-md transition-colors"
                 >
