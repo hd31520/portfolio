@@ -4,7 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import Image from 'next/image';
 import { FaCode, FaServer, FaMobileAlt, FaDatabase } from 'react-icons/fa';
 
-const AboutSection = () => {
+const AboutSection = ({ id }) => {
   const { theme } = useTheme();
 
   const services = [
@@ -32,6 +32,7 @@ const AboutSection = () => {
 
   return (
     <section 
+      id={id}
       className="py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300"
       style={{
         backgroundColor: theme === 'dark' ? 'var(--color-gray-900)' : 'var(--color-gray-50)'

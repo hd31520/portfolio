@@ -33,16 +33,17 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation Links and Theme Toggle */}
-          <div className="hidden md:flex  items-center space-x-4">
-            <NavLink className="dark:bg-white" href="/" text="Home" />
-            <NavLink className="dark:bg-white" href="#about" text="About" />
-            <NavLink className="dark:bg-white" href="#services" text="Services" />
-            <NavLink className="dark:bg-white" href="#contact" text="Contact" />
+          <div className="hidden md:flex items-center space-x-4">
+            <NavLink href="/" text="Home" />
+            <NavLink href="/#about" text="About" />
+            <NavLink href="/#services" text="Services" />
+            <NavLink href="/projects" text="Projects" />
+            <NavLink href="/#contact" text="Contact" />
 
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2 dark:bg-white rounded-full transition-colors duration-300 hover:bg-[var(--color-gray-200)] dark:hover:bg-[var(--color-gray-700)]"
+              className="p-2 rounded-full transition-colors duration-300 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? (
@@ -103,13 +104,14 @@ const Navbar = () => {
         <div className="md:hidden bg-[var(--banner-bg-color)]" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <MobileNavLink href="/" text="Home" />
-            <MobileNavLink href="#about" text="About" />
-            <MobileNavLink href="#services" text="Services" />
-            <MobileNavLink href="#contact" text="Contact" />
+            <MobileNavLink href="/#about" text="About" />
+            <MobileNavLink href="/#services" text="Services" />
+            <MobileNavLink href="/projects" text="Projects" />
+            <MobileNavLink href="/#contact" text="Contact" />
             {/* Theme Toggle for Mobile */}
             <button
               onClick={toggleTheme}
-              className="block w-full bg-white text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 text-gray-700 dark:text-[var(--color-gray-200)] hover:text-white hover:bg-indigo-500 dark:hover:bg-[var(--color-indigo-700)]"
+              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-all duration-300 text-gray-700 dark:text-gray-200 hover:text-white hover:bg-indigo-600 dark:hover:bg-indigo-600"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
@@ -123,14 +125,14 @@ const Navbar = () => {
 
 // Helper component for desktop navigation links
 const NavLink = ({ href, text }) => (
-  <Link href={href} className="text-gray-900 bg-white dark:text-[var(--color-gray-100)] hover:bg-indigo-500 dark:hover:bg-[var(--color-indigo-700)] hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">
+  <Link href={href} className="text-gray-700 dark:text-gray-200 hover:bg-indigo-600 dark:hover:bg-indigo-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ease-in-out">
       {text}
   </Link>
 );
 
 // Helper component for mobile navigation links
 const MobileNavLink = ({ href, text }) => (
-  <Link href={href} className="block px-3 py-2 rounded-md text-base bg-white font-medium text-gray-700 dark:text-[var(--color-gray-200)] hover:text-white hover:bg-indigo-500 dark:hover:bg-[var(--color-indigo-700)] transition duration-300 ease-in-out">
+  <Link href={href} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-white hover:bg-indigo-600 dark:hover:bg-indigo-600 transition-all duration-300 ease-in-out">
       {text}
   </Link>
 );

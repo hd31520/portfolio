@@ -22,7 +22,7 @@ import {
 import { RiTailwindCssFill } from "react-icons/ri";
 import { IoLogoFirebase, IoLogoVercel } from "react-icons/io5";
 
-const TechnologyStack = () => {
+const TechnologyStack = ({ id }) => {
   const { theme } = useTheme();
   const scrollerRef = useRef(null);
   const controls = useAnimationControls();
@@ -165,6 +165,7 @@ const TechnologyStack = () => {
 
   return (
     <section
+      id={id}
       className={`py-12 px-4 sm:px-6 lg:px-8 overflow-hidden ${
         theme === "dark" ? "bg-gray-900" : "bg-gray-100"
       }`}
